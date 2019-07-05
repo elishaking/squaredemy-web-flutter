@@ -109,11 +109,28 @@ class HomePage extends StatelessWidget {
             ClipPath(
               clipper: DiagonalCutClipper(),
               child: Container(
-                height: contentHeight * 0.2,
+                height: contentHeight * 0.1,
                 width: double.infinity,
                 color: Color.fromRGBO(48, 74, 123, 1),
               ),
-            )
+            ),
+
+            /// [section] [3]
+            Container(
+              height: contentHeight,
+              child: Stack(
+                children: <Widget>[
+                  ClipPath(
+                    clipper: TopBezelClipper(),
+                    child: Container(
+                      color: Color.fromRGBO(20, 33, 57, 1),
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -137,4 +154,24 @@ class DiagonalCutClipper extends CustomClipper<Path>{
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return true;
   }
+}
+
+class TopBezelClipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.moveTo(0, size.height / 1.2);
+    path.quadraticBezierTo(size.width / 1.1, size.height / 4, size.width, size.height / 1.1);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
+  }
+
 }
