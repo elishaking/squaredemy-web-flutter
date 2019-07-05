@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
                     image: AssetImage("all-devices.png"),
                   ),
                   SizedBox(height: 80,),
-                  HeadlineText("Available On All Devices"),
+                  HeadlineText("Available On All Screen sizes"),
                   SizedBox(height: 40,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
@@ -105,9 +105,36 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+            /// [section] [2] [clipper]
+            ClipPath(
+              clipper: DiagonalCutClipper(),
+              child: Container(
+                height: contentHeight * 0.2,
+                width: double.infinity,
+                color: Color.fromRGBO(48, 74, 123, 1),
+              ),
+            )
           ],
         ),
       ),
     );
+  }
+}
+
+class DiagonalCutClipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0);
+    // path.lineTo(0, 0);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
   }
 }
