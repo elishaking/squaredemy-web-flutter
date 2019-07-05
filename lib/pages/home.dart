@@ -60,6 +60,7 @@ class HomePage extends StatelessWidget {
 
             /// [section] [2]
             Container(
+              padding: contentPadding,
               height: contentHeight,
               width: double.infinity,
               color: Color.fromRGBO(48, 74, 123, 1),
@@ -126,6 +127,34 @@ class HomePage extends StatelessWidget {
                       color: Color.fromRGBO(20, 33, 57, 1),
                       width: double.infinity,
                       height: double.infinity,
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Image(
+                          image: AssetImage("phone.png"),
+                          height: 500,
+                        ),
+                        SizedBox(height: 30,),
+                        HeadlineText("Simple and Smart"),
+                        SizedBox(height: 30,),
+                        TitleText("Let's Teach Squaredbot"),
+                        SizedBox(height: 90,),
+                        RaisedButton(
+                          child: ButtonText("Join Testing",),
+                          elevation: 0,
+                          onPressed: (){
+
+                          },
+                          color: Color.fromRGBO(34, 209, 164, 1),
+                          padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                        ),
+                      ],
                     ),
                   )
                 ],
