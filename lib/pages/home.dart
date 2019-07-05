@@ -7,16 +7,17 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final double contentWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
     final double contentHeight = MediaQuery.of(context).size.height - MediaQuery.of(context).size.height * 0.05;
+    final contentPadding = EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 20);
 
     return Scaffold(
       backgroundColor: Color.fromRGBO(45, 63, 97, 1),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 20),
         child: Column(
           children: <Widget>[
-            NavBar(),
-            /// main [section]
+            NavBar(contentPadding),
+            /// [section] [1]
             Container(
+              padding: contentPadding,
               height: contentHeight,
               child: Row(
                 children: <Widget>[
@@ -52,6 +53,47 @@ class HomePage extends StatelessWidget {
                     child: Image(
                       image: AssetImage("phone.png"),
                     ),
+                  )
+                ],
+              ),
+            ),
+
+            /// [section] [2]
+            Container(
+              height: contentHeight,
+              color: Color.fromRGBO(48, 74, 123, 1),
+              child: Column(
+                children: <Widget>[
+                  Image(
+                    image: AssetImage("all-devices.png"),
+                  ),
+                  SizedBox(height: 80,),
+                  HeadlineText("Available On All Devices"),
+                  SizedBox(height: 40,),
+                  Row(
+                    children: <Widget>[
+                      Flexible(
+                        child: RaisedButton(
+                          elevation: 0,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Icon(Icons.local_play),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  BodyText("Available On"),
+                                  ButtonText("Google Play")
+                                ],
+                              )
+                            ],
+                          ),
+                          onPressed: (){
+
+                          },
+                        ),
+                      ),
+                    ],
                   )
                 ],
               ),
