@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double contentWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
-    final double contentHeight = MediaQuery.of(context).size.height - MediaQuery.of(context).size.height * 0.05;
+    final double contentHeight = MediaQuery.of(context).size.height;
     final contentPadding = EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 20);
 
     return Scaffold(
@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
             /// [section] [1]
             Container(
               padding: contentPadding,
-              height: contentHeight,
+              height: contentHeight - contentHeight * 0.05,
               child: Row(
                 children: <Widget>[
                   Container(
@@ -61,24 +61,31 @@ class HomePage extends StatelessWidget {
             /// [section] [2]
             Container(
               height: contentHeight,
+              width: double.infinity,
               color: Color.fromRGBO(48, 74, 123, 1),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Image(
+                    height: 400,
                     image: AssetImage("all-devices.png"),
                   ),
                   SizedBox(height: 80,),
                   HeadlineText("Available On All Devices"),
                   SizedBox(height: 40,),
                   Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Flexible(
                         child: RaisedButton(
                           elevation: 0,
+                          padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                          color: Color.fromRGBO(34, 209, 164, 1),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Icon(Icons.local_play),
+                              Icon(Icons.gesture),
+                              SizedBox(width: 20,),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
