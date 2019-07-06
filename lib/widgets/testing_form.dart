@@ -1,5 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/models/user.dart';
+import 'package:squaredemy_web/widgets/buttons.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
 class TestingForm extends StatefulWidget {
@@ -16,7 +17,16 @@ class _TestingFormState extends State<TestingForm> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return Container(
+      width: width * 0.3,
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20)
+      ),
       child: Column(
         children: <Widget>[
           HeadlineText("Join The Building Group"),
@@ -28,7 +38,8 @@ class _TestingFormState extends State<TestingForm> {
               children: <Widget>[
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: "name"
+                    labelText: "name",
+                    border: OutlineInputBorder()
                   ),
                   validator: (String value) {
                     if(value.isEmpty) return "Please enter your name";
@@ -42,7 +53,8 @@ class _TestingFormState extends State<TestingForm> {
                 TextFormField(
                   controller: _emailCtrl1,
                   decoration: InputDecoration(
-                    labelText: "email"
+                    labelText: "email",
+                    border: OutlineInputBorder()
                   ),
                   keyboardType: TextInputType.emailAddress,
                   validator: (String value) {
@@ -58,7 +70,8 @@ class _TestingFormState extends State<TestingForm> {
                 TextFormField(
                   controller: _emailCtrl2,
                   decoration: InputDecoration(
-                    labelText: "confirm email"
+                    labelText: "confirm email",
+                    border: OutlineInputBorder()
                   ),
                   keyboardType: TextInputType.emailAddress,
                   validator: (String value) {
@@ -71,7 +84,12 @@ class _TestingFormState extends State<TestingForm> {
             ),
           ),
           SizedBox(height: 60,),
-          RaisedButton()
+          PrimaryButton("Join Testing",
+          onPressed: (){
+            if(_formkey.currentState.validate()){
+              _formkey.currentState.save();
+            }
+          },)
         ],
       ),
     );

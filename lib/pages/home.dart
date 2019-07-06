@@ -1,6 +1,7 @@
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/widgets/buttons.dart';
 import 'package:squaredemy_web/widgets/nav.dart';
+import 'package:squaredemy_web/widgets/testing_form.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
 class HomePage extends StatelessWidget {
@@ -263,7 +264,7 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 30,),
                   BodyText("Squaredbot is "),
                   SizedBox(height: 200,),
-                  Container()
+                  TestingForm()
                 ],
               ),          
             ),
