@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:squaredemy_web/widgets/buttons.dart';
 import 'package:squaredemy_web/widgets/nav.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
@@ -145,15 +146,10 @@ class HomePage extends StatelessWidget {
                         SizedBox(height: 30,),
                         TitleText("Let's Teach Squaredbot"),
                         SizedBox(height: 90,),
-                        RaisedButton(
-                          child: ButtonText("Join Testing",),
-                          elevation: 0,
-                          onPressed: (){
-
-                          },
-                          color: Color.fromRGBO(34, 209, 164, 1),
-                          padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
-                        ),
+                        PrimaryButton("Join Testing",
+                        onPressed: (){
+                          
+                        },)
                       ],
                     ),
                   )
