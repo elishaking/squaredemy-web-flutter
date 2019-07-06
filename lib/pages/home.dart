@@ -256,6 +256,21 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+          
+            /// [section] [5]
+            Container(
+              height: contentHeight * 2,
+              padding: contentPadding,
+              child: Column(
+                children: <Widget>[
+                  HeadlineText("Help Squaredbot"),
+                  SizedBox(height: 30,),
+                  BodyText("Squaredbot is "),
+                  SizedBox(height: 200,),
+                  Container()
+                ],
+              ),          
+            ),
           ],
         ),
       ),
