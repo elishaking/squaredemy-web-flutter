@@ -137,7 +137,7 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image(
-                          image: AssetImage("phone.png"),
+                          image: AssetImage("phone-2.png"),
                           height: 500,
                         ),
                         SizedBox(height: 30,),
@@ -157,6 +157,102 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   )
+                ],
+              ),
+            ),
+
+            /// [section] [4]
+            Container(
+              height: contentHeight,
+              padding: contentPadding,
+              color: Color.fromRGBO(20, 33, 57, 1),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Image(
+                          image: AssetImage("ai.png"),
+                        ),
+                        SizedBox(height: 80,),
+                        TitleText("Artificial Intelligence"),
+                        SizedBox(height: 20,),
+                        BodyText("Squaredemy uses AI to create the perfect learning experience"),
+                        SizedBox(height: 30,),
+                        FlatButton(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              BodyText("Learn More"),
+                              SizedBox(width: 10,),
+                              Icon(Icons.arrow_forward_ios, color: Colors.white,)
+                            ],
+                          ),
+                          onPressed: (){
+                            
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Image(
+                          image: AssetImage("ai.png"),
+                        ),
+                        SizedBox(height: 80,),
+                        TitleText("Artificial Intelligence"),
+                        SizedBox(height: 20,),
+                        BodyText("Squaredemy uses AI to create the perfect learning experience"),
+                        SizedBox(height: 30,),
+                        FlatButton(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              BodyText("Learn More"),
+                              SizedBox(width: 10,),
+                              Icon(Icons.arrow_forward_ios, color: Colors.white,)
+                            ],
+                          ),
+                          onPressed: (){
+                            
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Image(
+                          image: AssetImage("ai.png"),
+                        ),
+                        SizedBox(height: 80,),
+                        TitleText("Artificial Intelligence"),
+                        SizedBox(height: 20,),
+                        BodyText("Squaredemy uses AI to create the perfect learning experience"),
+                        SizedBox(height: 30,),
+                        FlatButton(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              BodyText("Learn More"),
+                              SizedBox(width: 10,),
+                              Icon(Icons.arrow_forward_ios, color: Colors.white,)
+                            ],
+                          ),
+                          onPressed: (){
+                            
+                          },
+                        )
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
