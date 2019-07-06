@@ -269,6 +269,53 @@ class HomePage extends StatelessWidget {
                 ],
               ),          
             ),
+
+            Container(
+              height: contentHeight,
+              child: Stack(
+                children: <Widget>[
+                  ClipPath(
+                    clipper: TopBezelClipper(),
+                    child: Container(
+                      color: Color.fromRGBO(20, 33, 57, 1),
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
+                  ),
+                  Container(
+                    // width: double.infinity,
+                    alignment: Alignment.bottomCenter,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        HeadlineText("Stay updated about Squaredemy"),
+                        SizedBox(height: 90,),
+                        Row(
+                          children: <Widget>[
+                            Flexible(
+                              child: Form(
+                                child: TextFormField(
+
+                                ),
+                              ),
+                            ),
+                            RaisedButton(
+                              child: ButtonText("Subscribe",),
+                              elevation: 0,
+                              onPressed: (){
+                              },
+                              color: ThemeColors.secondary,
+                              padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

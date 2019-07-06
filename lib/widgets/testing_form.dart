@@ -22,7 +22,7 @@ class _TestingFormState extends State<TestingForm> {
     final height = MediaQuery.of(context).size.height;
 
     return Container(
-      width: width * 0.3,
+      width: width * 0.4,
       padding: EdgeInsets.symmetric(horizontal: 40, vertical: 40),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -36,6 +36,7 @@ class _TestingFormState extends State<TestingForm> {
           // BodyText("* Get the first 3 months free"),
           SizedBox(height: 100,),
           Form(
+            key: _formkey,
             child: Column(
               children: <Widget>[
                 TextFormField(
@@ -86,15 +87,22 @@ class _TestingFormState extends State<TestingForm> {
             ),
           ),
           SizedBox(height: 60,),
-          PrimaryButton("Join Testing",
-          onPressed: (){
-            if(_formkey.currentState.validate()){
-              _formkey.currentState.save();
-            }
-          },)
+          RaisedButton(
+            child: ButtonText("Join Testing",),
+            elevation: 0,
+            onPressed: (){
+              if(_formkey.currentState.validate()){
+                _formkey.currentState.save();
+              }
+            },
+            color: Color.fromRGBO(34, 209, 164, 1),
+            padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+          )
         ],
       ),
     );
+
+
   }
 
   @override
