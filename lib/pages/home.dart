@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/widgets/buttons.dart';
 import 'package:squaredemy_web/widgets/nav.dart';
 import 'package:squaredemy_web/widgets/testing_form.dart';
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
     final contentPadding = EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 20);
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(45, 63, 97, 1),
+      backgroundColor: ThemeColors.primary,
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[

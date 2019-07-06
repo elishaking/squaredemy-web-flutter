@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/models/user.dart';
 import 'package:squaredemy_web/widgets/buttons.dart';
 import 'package:squaredemy_web/widgets/text.dart';
@@ -22,14 +23,15 @@ class _TestingFormState extends State<TestingForm> {
 
     return Container(
       width: width * 0.3,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 40),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20)
       ),
       child: Column(
         children: <Widget>[
-          HeadlineText("Join The Building Group"),
+          HeadlineText("Join The Building Group", textColor: ThemeColors.primary,
+          textAlign: TextAlign.center,),
           // SizedBox(height: 10,),
           // BodyText("* Get the first 3 months free"),
           SizedBox(height: 100,),

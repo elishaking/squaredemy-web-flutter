@@ -48,16 +48,19 @@ class TitleText extends StatelessWidget {
 
 class HeadlineText extends StatelessWidget {
   final String text;
+  final Color textColor;
+  final TextAlign textAlign;
 
-  HeadlineText(this.text);
+  HeadlineText(this.text, {this.textColor = Colors.white, this.textAlign = TextAlign.start});
 
   @override
   Widget build(BuildContext context) {
     return Text(this.text, 
     style: TextStyle(
-      color: Colors.white,
+      color: textColor,
       fontSize: 60
     ),
+    textAlign: textAlign,
     overflow: TextOverflow.clip,);
   }
 }
