@@ -293,11 +293,31 @@ class HomePage extends StatelessWidget {
                         HeadlineText("Stay updated about Squaredemy"),
                         SizedBox(height: 90,),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Flexible(
+                            Container(
+                              width: contentWidth * 0.5,
                               child: Form(
                                 child: TextFormField(
-
+                                  keyboardType: TextInputType.emailAddress,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                  decoration: InputDecoration(
+                                    hintText: "email",
+                                    hintStyle: TextStyle(color: Colors.white70),
+                                    contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 33),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(0),
+                                        bottomLeft: Radius.circular(10),
+                                        bottomRight: Radius.circular(0),
+                                      )
+                                    ),
+                                    filled: true,
+                                    fillColor: ThemeColors.primary
+                                  ),
                                 ),
                               ),
                             ),
