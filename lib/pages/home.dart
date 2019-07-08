@@ -262,6 +262,7 @@ class HomePage extends StatelessWidget {
               padding: contentPadding,
               child: Column(
                 children: <Widget>[
+                  SizedBox(height: 230,),
                   HeadlineText("Help Squaredbot"),
                   SizedBox(height: 30,),
                   BodyText("Squaredbot is "),
