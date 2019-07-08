@@ -9,6 +9,7 @@ class BodyText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(this.text, 
     style: TextStyle(
+      fontFamily: "Chivo",
       color: Colors.white
     ),);
   }
@@ -24,6 +25,7 @@ class ButtonText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(this.text, 
     style: TextStyle(
+      fontFamily: "Chivo",
       color: this.color,
       fontSize: 20
     ),);
@@ -40,6 +42,7 @@ class TitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(this.text, 
     style: TextStyle(
+      fontFamily: "Chivo",
       color: this.color,
       fontSize: 27
     ),);
@@ -57,6 +60,7 @@ class HeadlineText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(this.text, 
     style: TextStyle(
+      fontFamily: "Chivo",
       color: textColor,
       fontSize: 60
     ),
