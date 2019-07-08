@@ -277,7 +277,7 @@ class HomePage extends StatelessWidget {
                   ClipPath(
                     clipper: TopBezelClipper(),
                     child: Container(
-                      color: Color.fromRGBO(20, 33, 57, 1),
+                      color: ThemeColors.primaryDark,
                       width: double.infinity,
                       height: double.infinity,
                     ),
@@ -316,6 +316,36 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+          
+            /// [Footer]
+            Container(
+              height: contentHeight / 4,
+              padding: contentPadding,
+              color: ThemeColors.primaryDark,
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    child: Row(
+                      children: <Widget>[
+                        Image(
+                          height: 30,
+                          image: AssetImage("logo_white.png"),
+                        ),
+                        SizedBox(width: 20,),
+                        BodyText("SQUAREDEMY")
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Row(
+                      children: <Widget>[
+
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
