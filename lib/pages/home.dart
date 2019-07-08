@@ -6,6 +6,7 @@ import 'package:squaredemy_web/widgets/testing_form.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
 class HomePage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final double contentWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
@@ -339,7 +340,7 @@ class HomePage extends StatelessWidget {
                   Container(
                     child: Row(
                       children: <Widget>[
-
+                        
                       ],
                     ),
                   )
