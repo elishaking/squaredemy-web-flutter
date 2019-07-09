@@ -1,5 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/global/styles.dart';
+import 'package:squaredemy_web/widgets/clippers.dart';
 import 'package:squaredemy_web/widgets/nav.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
@@ -65,7 +66,16 @@ class AboutPage extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+            /// [section] [2] [clipper]
+            ClipPath(
+              clipper: DiagonalCutClipper(),
+              child: Container(
+                height: contentHeight * 0.1,
+                width: double.infinity,
+                color: Color.fromRGBO(48, 74, 123, 1),
+              ),
+            ),
           ]
         )
       )
