@@ -44,6 +44,45 @@ class AboutPage extends StatelessWidget {
                 ],
               ),
             ),
+
+            /// [section] [2]
+            Container(
+              height: contentHeight,
+              padding: contentPadding,
+              color: ThemeColors.primaryLight,
+              child: Column(
+                children: <Widget>[
+                  HeadlineText("Meet the Team"),
+                  SizedBox(height: 40,),
+                  TitleText("We love teamwork. We love the idea of everyone rallying together to help us win."),
+                  SizedBox(height: 200,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 50),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20)
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            CircleAvatar(
+                              backgroundImage: AssetImage("king.png"),
+                              radius: 100,
+                            ),
+                            SizedBox(height: 40,),
+                            TitleText("KING ELISHA", color: ThemeColors.primary,),
+                            SizedBox(height: 20,),
+                            BodyText("Founder/CEO", color: ThemeColors.primary,)
+                          ],
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            )
           ]
         )
       )

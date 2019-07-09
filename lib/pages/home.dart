@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
               padding: contentPadding,
               height: contentHeight,
               width: double.infinity,
-              color: Color.fromRGBO(48, 74, 123, 1),
+              color: ThemeColors.primaryLight,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[

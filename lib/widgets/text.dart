@@ -2,14 +2,15 @@ import 'package:flutter_web/material.dart';
 
 class BodyText extends StatelessWidget {
   final String text;
+  final Color color;
 
-  BodyText(this.text);
+  BodyText(this.text, {this.color = Colors.white});
 
   @override
   Widget build(BuildContext context) {
     return Text(this.text, 
     style: TextStyle(
-      color: Colors.white
+      color: color
     ),);
   }
 }
