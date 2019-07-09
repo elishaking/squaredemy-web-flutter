@@ -59,25 +59,8 @@ class AboutPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 50),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            CircleAvatar(
-                              backgroundImage: AssetImage("king.png"),
-                              radius: 100,
-                            ),
-                            SizedBox(height: 40,),
-                            TitleText("KING ELISHA", color: ThemeColors.primary,),
-                            SizedBox(height: 20,),
-                            BodyText("Founder/CEO", color: ThemeColors.primary,)
-                          ],
-                        ),
-                      )
+                      TeamMember("KING ELISHA", "Founder/CEO", "king.png"),
+                      TeamMember("SHEDRACH ELURIHU", "Co-Founder/Designer", "king.png")
                     ],
                   )
                 ],
@@ -86,6 +69,38 @@ class AboutPage extends StatelessWidget {
           ]
         )
       )
+    );
+  }
+}
+
+class TeamMember extends StatelessWidget {
+  final String fullName;
+  final String title;
+  final String imageUrl;
+
+  TeamMember(this.fullName, this.title, this.imageUrl);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 50),
+      // width: 200,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20)
+      ),
+      child: Column(
+        children: <Widget>[
+          CircleAvatar(
+            backgroundImage: AssetImage(imageUrl),
+            radius: 100,
+          ),
+          SizedBox(height: 40,),
+          TitleText(fullName, color: ThemeColors.primary,),
+          SizedBox(height: 20,),
+          BodyText(title, color: ThemeColors.primary,)
+        ],
+      ),
     );
   }
 }
