@@ -3,7 +3,7 @@ class User{
   String email;
   bool isTester;
 
-  User({this.name, this.email, this.isTester});
+  User({this.name, this.email, this.isTester = true});
 
   User.fromMap(Map<String, dynamic> data){
     name = data["name"];
@@ -16,6 +16,16 @@ class User{
       "name": name,
       "email": email,
       "isTester": isTester
+    };
+  }
+
+  Map<String, dynamic> toFirestoreMap(){
+    return {
+      "fields": {
+        "name": { "stringValue": name },
+        "email": { "stringValue": email },
+        "isTester": { "booleanValue": isTester }
+      }
     };
   }
 }

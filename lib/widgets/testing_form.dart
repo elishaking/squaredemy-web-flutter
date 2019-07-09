@@ -1,8 +1,11 @@
+import 'dart:convert';
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/models/user.dart';
 import 'package:squaredemy_web/widgets/buttons.dart';
 import 'package:squaredemy_web/widgets/text.dart';
+
+import 'package:http/http.dart' as http;
 
 class TestingForm extends StatefulWidget {
   @override
@@ -15,6 +18,8 @@ class _TestingFormState extends State<TestingForm> {
   TextEditingController _emailCtrl2 = TextEditingController();
 
   User _user = User();
+
+  bool _loading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -87,12 +92,43 @@ class _TestingFormState extends State<TestingForm> {
             ),
           ),
           SizedBox(height: 60,),
-          RaisedButton(
+          _loading ? CircularProgressIndicator() : RaisedButton(
             child: ButtonText("Join Testing",),
             elevation: 0,
             onPressed: (){
               if(_formkey.currentState.validate()){
                 _formkey.currentState.save();
+
+                setState(() {
+                 _loading = true; 
+                });
+                // print(jsonEncode(_user.toFirestoreMap()));
+                http.post("https://firestore.googleapis.com/v1/projects/squaredemy/databases/(default)/documents/users?documentId=${_user.email}",
+                // headers: {
+                //   "Content-Type": "application/json"
+                // },
+                body: jsonEncode(_user.toFirestoreMap())).then((http.Response response) {
+                  setState(() {
+                   _loading = false; 
+                  });
+                  if(jsonDecode(response.body).contains("name")){
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: Text("Welcome Onboard"),
+                        content: Text("Please check your email for the next step"),
+                      )
+                    );
+                  } else{
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: Text("Something went wrong"),
+                        content: Text("Please try again"),
+                      )
+                    );
+                  }
+                });
               }
             },
             color: Color.fromRGBO(34, 209, 164, 1),
