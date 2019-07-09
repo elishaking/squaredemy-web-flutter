@@ -328,7 +328,7 @@ class HomePage extends StatelessWidget {
                               elevation: 0,
                               onPressed: (){
                               },
-                              color: ThemeColors.secondary,
+                              color: ThemeColors.primaryButton,
                               padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
                             )
                           ],

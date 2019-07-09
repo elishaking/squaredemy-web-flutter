@@ -11,7 +11,8 @@ class BodyText extends StatelessWidget {
     return Text(this.text, 
     style: TextStyle(
       color: color
-    ),);
+    ),
+    overflow: TextOverflow.clip,);
   }
 }
 
@@ -43,7 +44,8 @@ class TitleText extends StatelessWidget {
     style: TextStyle(
       color: this.color,
       fontSize: 27
-    ),);
+    ),
+    overflow: TextOverflow.clip,);
   }
 }
 

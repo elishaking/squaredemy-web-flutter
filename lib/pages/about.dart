@@ -7,7 +7,7 @@ import 'package:squaredemy_web/widgets/text.dart';
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double contentWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
+    final double contentWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.2;
     final double contentHeight = MediaQuery.of(context).size.height;
     final contentPadding = EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 20);
 
@@ -61,7 +61,7 @@ class AboutPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       TeamMember("KING ELISHA", "Founder/CEO", "king.png"),
-                      TeamMember("SHEDRACH ELURIHU", "Co-Founder/Designer", "king.png")
+                      TeamMember("SHEDRACH ELURIHU", "Co-Founder/Designer", "shedrach.jpeg")
                     ],
                   )
                 ],
@@ -76,6 +76,56 @@ class AboutPage extends StatelessWidget {
                 color: Color.fromRGBO(48, 74, 123, 1),
               ),
             ),
+
+            /// [section] [3]
+            Container(
+              height: contentHeight * 2,
+              padding: contentPadding,
+              child: Column(
+                children: <Widget>[
+                  HeadlineText("Tough problems solved through innovative software soultions"),
+                  SizedBox(height: 60,),
+                  TitleText("We are team of tenacious professionals with broadexpertise in graphic design and implementation of responsive/modern website, mobile apps and desktop apps. Our main goal is to keep tackling major socio-economic issues facing nations of the world through innovative software solutions"),
+                  SizedBox(height: 120,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Container(
+                        width: contentWidth,
+                        child: Image(
+                          image: AssetImage("vision.png"),
+                        ),
+                      ),
+                      Container(
+                        width: contentWidth,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            HeadlineText("Mission"),
+                            SizedBox(height: 30,),
+                            TitleText("We aim to standout as the leading provider of comprehensive and innovative software platform that tackle major problems in education and financial sectors in Nigeria"),
+                            SizedBox(height: 50,),
+                            HeadlineText("Vision"),
+                            SizedBox(height: 30,),
+                            TitleText("Accelerate Africa's transition to a robust digital economy through innovative-driven software solutions"),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 120),
+                  RaisedButton(
+                    child: ButtonText("Visit Skyblazar",),
+                    elevation: 0,
+                    onPressed: (){
+
+                    },
+                    color: ThemeColors.secondaryButton,
+                    padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                  ),
+                ],
+              ),
+            )
           ]
         )
       )
