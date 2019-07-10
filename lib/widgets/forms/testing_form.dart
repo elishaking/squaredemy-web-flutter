@@ -28,7 +28,7 @@ class _TestingFormState extends State<TestingForm> {
     final height = MediaQuery.of(context).size.height;
 
     return Container(
-      width: width < 700 ? width * 0.9 : width * 0.4,
+      width: width < 1100 ? width * 0.9 : width * 0.4,
       padding: EdgeInsets.symmetric(horizontal: responsiveSize(width, 40), vertical: responsiveSize(width, 40)),
       decoration: BoxDecoration(
         color: Colors.white,
