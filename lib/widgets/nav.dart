@@ -4,14 +4,15 @@ import 'package:squaredemy_web/pages/home.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
 class NavBar extends StatelessWidget {
-  final contentPadding;
+  final EdgeInsetsGeometry contentPadding;
   
   NavBar(this.contentPadding);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: contentPadding,
+      // padding: contentPadding,
+      padding: EdgeInsets.symmetric(horizontal: contentPadding.horizontal / 2, vertical: contentPadding.vertical / 4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
             /// [section] [1]
             Container(
               padding: contentPadding,
-              height: contentHeight - contentHeight * 0.05,
+              height: contentHeight - contentHeight * 0.1,
               child: Row(
                 children: <Widget>[
                   Container(
@@ -379,7 +379,7 @@ class AppFeature extends StatelessWidget {
           TitleText(title, textAlign: TextAlign.center,),
           SizedBox(height: 20,),
           Container(
-            height: 30,
+            height: 40, //todo: adjust based on screen size
             child: BodyText(details, textAlign: TextAlign.center,)
           ),
           SizedBox(height: 30,),
