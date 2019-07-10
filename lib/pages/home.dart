@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/widgets/buttons.dart';
 import 'package:squaredemy_web/widgets/clippers.dart';
@@ -13,7 +14,8 @@ class HomePage extends StatelessWidget {
     final double splitWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
     final double contentHeight = MediaQuery.of(context).size.height;
     final double contentWidth = MediaQuery.of(context).size.width;
-    final contentPadding = EdgeInsets.symmetric(horizontal: contentWidth * 0.1, vertical: contentHeight * 0.1);
+    print(responsiveSize(contentWidth, 50));
+    final contentPadding = EdgeInsets.symmetric(horizontal: contentWidth * 0.1, vertical: responsiveSize(contentWidth, 50));
 
     return Scaffold(
       backgroundColor: ThemeColors.primary,
@@ -24,8 +26,8 @@ class HomePage extends StatelessWidget {
             /// [section] [1]
             Container(
               padding: contentPadding,
-              height: contentWidth < 1100 ? contentHeight * 0.9 * 2 : contentHeight * 0.9,
-              child: _buildVPSection(context, contentWidth, splitWidth),
+              height: contentWidth < 1100 ? contentHeight * 2 : contentHeight * 0.9,
+              child: _buildVPSection(context, contentWidth, contentHeight * 0.9, splitWidth),
             ),
 
             /// [section] [2]
@@ -129,7 +131,7 @@ class HomePage extends StatelessWidget {
             /// [section] [4]
             Container(
               height: _appFeaturesContainerHeight(contentWidth, contentHeight),
-              padding: contentPadding.add(EdgeInsets.only(bottom: -contentHeight * 0.1)),
+              padding: EdgeInsets.only(top: contentPadding.top, left: contentPadding.left, bottom: 0, right: contentPadding.right),
               color: Color.fromRGBO(20, 33, 57, 1),
               alignment: Alignment.center,
               child: _buildAppFeaturesWidget(contentWidth),
@@ -253,21 +255,22 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildVPSection(BuildContext context, double contentWidth, double splitWidth) {
+  Widget _buildVPSection(BuildContext context, final double contentWidth, final double height, double splitWidth) {
     bool isMobile = contentWidth < 1100;
     if(isMobile) splitWidth = contentWidth - contentWidth * 0.1;
 
     List<Widget> contents = [
       Container(
         width: splitWidth,
+        height: height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             HeadlineText("The Most Productive Way to Learn", textAlign: TextAlign.start,),
-            SizedBox(height: 30,),
+            SizedBox(height: responsiveSize(contentWidth, 30),),
             TitleText("Squaredemy is an AI-driven learning platform that enhances learning productivity through customized curriculums that are generated based on fun and engaging interactions with the user", textAlign: TextAlign.start,),
-            SizedBox(height: 90,),
+            SizedBox(height: responsiveSize(contentWidth, 90),),
             Row(
               children: <Widget>[
                 RaisedButton(
@@ -287,6 +290,7 @@ class HomePage extends StatelessWidget {
       ),
       Container(
         width: splitWidth,
+        height: height,
         // alignment: Alignment.centerRight,
         child: Image(
           image: AssetImage("phone.png"),

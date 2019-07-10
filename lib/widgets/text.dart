@@ -106,6 +106,7 @@ class HeadlineText extends StatelessWidget {
 }
 
 double _getFontSize(final double contentWidth, final Map<double, double> fontSizes){
+  if(contentWidth < 550) return fontSizes[550];
   if(contentWidth < 1100) return fontSizes[1100];
   if(contentWidth < 1500) return fontSizes[1500];
 
