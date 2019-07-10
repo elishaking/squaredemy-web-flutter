@@ -3,7 +3,7 @@ import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/widgets/buttons.dart';
 import 'package:squaredemy_web/widgets/clippers.dart';
 import 'package:squaredemy_web/widgets/nav.dart';
-import 'package:squaredemy_web/widgets/testing_form.dart';
+import 'package:squaredemy_web/widgets/forms/testing_form.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
 class HomePage extends StatelessWidget {

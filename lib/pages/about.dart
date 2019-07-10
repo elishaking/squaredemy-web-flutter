@@ -1,6 +1,7 @@
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/widgets/clippers.dart';
+import 'package:squaredemy_web/widgets/forms/contact_form.dart';
 import 'package:squaredemy_web/widgets/nav.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
@@ -9,6 +10,7 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final double contentWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.2;
     final double contentHeight = MediaQuery.of(context).size.height;
+    final double contactWidth = MediaQuery.of(context).size.width * 0.4;
     final contentPadding = EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 20);
 
     return Scaffold(
@@ -79,7 +81,7 @@ class AboutPage extends StatelessWidget {
 
             /// [section] [3]
             Container(
-              height: contentHeight * 2,
+              height: contentHeight * 1.5,
               padding: contentPadding,
               child: Column(
                 children: <Widget>[
@@ -123,6 +125,29 @@ class AboutPage extends StatelessWidget {
                     color: ThemeColors.secondaryButton,
                     padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
                   ),
+                ],
+              ),
+            ),
+
+            /// [section] [4]
+            Container(
+              height: contentHeight * 1.3,
+              padding: contentPadding,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(left: contactWidth / 1.2),
+                    child: ContactForm()
+                  ),
+                  Container(
+                    alignment: Alignment.topCenter,
+                    margin: EdgeInsets.only(top: 100, right: contactWidth / 1.2),
+                    child: Image(
+                      image: AssetImage("contact.png"),
+                      width: contactWidth,
+                    ),
+                  )
                 ],
               ),
             )
