@@ -202,12 +202,12 @@ class HomePage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Image(
-                          image: AssetImage("ai.png"),
+                          image: AssetImage("progress.png"),
                         ),
                         SizedBox(height: 80,),
-                        TitleText("Artificial Intelligence"),
+                        TitleText("Comprehensive Feedback"),
                         SizedBox(height: 20,),
-                        BodyText("Squaredemy uses AI to create the perfect learning experience"),
+                        BodyText("Squaredemy keeps track of your entire learning progress and gives comprehensive feedback on areas of strength and potential improvement"),
                         SizedBox(height: 30,),
                         FlatButton(
                           child: Row(
@@ -230,12 +230,12 @@ class HomePage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Image(
-                          image: AssetImage("ai.png"),
+                          image: AssetImage("library.png"),
                         ),
                         SizedBox(height: 80,),
-                        TitleText("Artificial Intelligence"),
+                        TitleText("Valuable Content"),
                         SizedBox(height: 20,),
-                        BodyText("Squaredemy uses AI to create the perfect learning experience"),
+                        BodyText("Squaredemy gives you access to a broad range of valuable learning resources"),
                         SizedBox(height: 30,),
                         FlatButton(
                           child: Row(
