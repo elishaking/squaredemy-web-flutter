@@ -39,8 +39,9 @@ class ButtonText extends StatelessWidget {
 class TitleText extends StatelessWidget {
   final String text;
   final Color color;
+  final TextAlign textAlign;
 
-  TitleText(this.text, {this.color = Colors.white});
+  TitleText(this.text, {this.color = Colors.white, this.textAlign = TextAlign.left});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,8 @@ class TitleText extends StatelessWidget {
       fontSize: 27,
       fontWeight: FontWeight.w700
     ),
-    overflow: TextOverflow.clip,);
+    overflow: TextOverflow.clip,
+    textAlign: textAlign,);
   }
 }
 
