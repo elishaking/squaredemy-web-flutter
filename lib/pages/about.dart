@@ -55,10 +55,11 @@ class AboutPage extends StatelessWidget {
               color: ThemeColors.primaryLight,
               child: Column(
                 children: <Widget>[
+                  SizedBox(height: 100,),
                   HeadlineText("Meet the Team"),
                   SizedBox(height: 40,),
                   TitleText("We love teamwork. We love the idea of everyone rallying together to help us win."),
-                  SizedBox(height: 200,),
+                  SizedBox(height: 100,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
