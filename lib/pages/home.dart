@@ -166,93 +166,13 @@ class HomePage extends StatelessWidget {
               height: contentHeight,
               padding: contentPadding,
               color: Color.fromRGBO(20, 33, 57, 1),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: GridView.count(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisCount: 3,
                 children: <Widget>[
-                  Container(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Image(
-                          image: AssetImage("ai.png"),
-                        ),
-                        SizedBox(height: 80,),
-                        TitleText("Artificial Intelligence"),
-                        SizedBox(height: 20,),
-                        BodyText("Squaredemy uses AI to create the perfect learning experience"),
-                        SizedBox(height: 30,),
-                        FlatButton(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              BodyText("Learn More"),
-                              SizedBox(width: 10,),
-                              Icon(Icons.arrow_forward_ios, color: Colors.white,)
-                            ],
-                          ),
-                          onPressed: (){
-                            
-                          },
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Image(
-                          image: AssetImage("progress.png"),
-                        ),
-                        SizedBox(height: 80,),
-                        TitleText("Comprehensive Feedback"),
-                        SizedBox(height: 20,),
-                        BodyText("Squaredemy keeps track of your entire learning progress and gives comprehensive feedback on areas of strength and potential improvement"),
-                        SizedBox(height: 30,),
-                        FlatButton(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              BodyText("Learn More"),
-                              SizedBox(width: 10,),
-                              Icon(Icons.arrow_forward_ios, color: Colors.white,)
-                            ],
-                          ),
-                          onPressed: (){
-                            
-                          },
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Image(
-                          image: AssetImage("library.png"),
-                        ),
-                        SizedBox(height: 80,),
-                        TitleText("Valuable Content"),
-                        SizedBox(height: 20,),
-                        BodyText("Squaredemy gives you access to a broad range of valuable learning resources"),
-                        SizedBox(height: 30,),
-                        FlatButton(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              BodyText("Learn More"),
-                              SizedBox(width: 10,),
-                              Icon(Icons.arrow_forward_ios, color: Colors.white,)
-                            ],
-                          ),
-                          onPressed: (){
-                            
-                          },
-                        )
-                      ],
-                    ),
-                  ),
+                  AppFeature("Artificial Intelligence", "Squaredemy uses AI to create the perfect learning experience", "ai.png"),
+                  AppFeature("Comprehensive Feedback", "Squaredemy keeps track of your entire learning progress and gives comprehensive feedback on areas of strength and potential improvement", "progress.png"),
+                  AppFeature("Valuable Content", "Squaredemy gives you access to a broad range of valuable learning resources", "library.png")
                 ],
               ),
             ),
@@ -371,6 +291,50 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class AppFeature extends StatelessWidget {
+  final String title;
+  final String details;
+  final String imageUrl;
+
+  AppFeature(this.title, this.details, this.imageUrl);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Container(
+            height: 300,
+            child: Image(
+              image: AssetImage(imageUrl),
+              height: 270,
+            ),
+          ),
+          SizedBox(height: 80,),
+          TitleText(title),
+          SizedBox(height: 20,),
+          BodyText(details),
+          SizedBox(height: 30,),
+          FlatButton(
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                BodyText("Learn More"),
+                SizedBox(width: 10,),
+                Icon(Icons.arrow_forward_ios, color: Colors.white,)
+              ],
+            ),
+            onPressed: (){
+              
+            },
+          )
+        ],
       ),
     );
   }
