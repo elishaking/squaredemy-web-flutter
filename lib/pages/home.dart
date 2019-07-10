@@ -176,45 +176,7 @@ class HomePage extends StatelessWidget {
                       children: <Widget>[
                         HeadlineText("Stay updated about Squaredemy"),
                         SizedBox(height: 90,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              width: splitWidth * 0.5,
-                              child: Form(
-                                child: TextFormField(
-                                  keyboardType: TextInputType.emailAddress,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                  decoration: InputDecoration(
-                                    hintText: "email",
-                                    hintStyle: TextStyle(color: Colors.white70),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 33),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(0),
-                                        bottomLeft: Radius.circular(10),
-                                        bottomRight: Radius.circular(0),
-                                      )
-                                    ),
-                                    filled: true,
-                                    fillColor: ThemeColors.primary
-                                  ),
-                                ),
-                              ),
-                            ),
-                            RaisedButton(
-                              child: ButtonText("Subscribe",),
-                              elevation: 0,
-                              onPressed: (){
-                              },
-                              color: ThemeColors.primaryButton,
-                              padding: buttonPadding,
-                            )
-                          ],
-                        ),
+                        _buildSubscribeForm(contentWidth, splitWidth, buttonPadding),
                       ],
                     ),
                   )
@@ -254,6 +216,65 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildSubscribeForm(final double contentWidth, double splitWidth, final EdgeInsets buttonPadding) {
+    final Form form = Form(
+      child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        style: TextStyle(
+          color: Colors.white,
+        ),
+        decoration: InputDecoration(
+          hintText: "email",
+          hintStyle: TextStyle(color: Colors.white70),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 33),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(contentWidth < 1100 ? 10 : 0),
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(contentWidth < 1100 ? 10 : 0),
+            )
+          ),
+          filled: true,
+          fillColor: ThemeColors.primary
+        ),
+      ),
+    );
+
+    RaisedButton subscribeButton = RaisedButton(
+      child: ButtonText("Subscribe",),
+      elevation: 0,
+      onPressed: (){
+      },
+      color: ThemeColors.primaryButton,
+      padding: buttonPadding,
+    );
+
+    if(contentWidth < 1100){
+      return Column(
+        children: <Widget>[
+          Container(
+            width: contentWidth * 0.9,
+            child: form,
+          ),
+          SizedBox(height: 20,),
+          subscribeButton
+        ],
+      );
+    }
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: splitWidth * 0.5,
+          child: form,
+        ),
+        subscribeButton
+      ],
     );
   }
 
