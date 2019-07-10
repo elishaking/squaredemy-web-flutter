@@ -145,11 +145,11 @@ class HomePage extends StatelessWidget {
               padding: contentPadding,
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 230,),
+                  // SizedBox(height: 230,),
                   HeadlineText("Help Squaredbot"),
-                  SizedBox(height: 30,),
-                  BodyText("Squaredbot is "),
-                  SizedBox(height: 200,),
+                  // SizedBox(height: 30,),
+                  // BodyText("Squaredbot is "),
+                  SizedBox(height: 50,),
                   TestingForm()
                 ],
               ),          

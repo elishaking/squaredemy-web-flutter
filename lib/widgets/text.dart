@@ -47,7 +47,8 @@ class ButtonText extends StatelessWidget {
       color: this.color,
       fontSize: _getFontSize(MediaQuery.of(context).size.width, fontSizes),
       fontWeight: FontWeight.w700
-    ),);
+    ),
+    textAlign: TextAlign.center,);
   }
 }
 

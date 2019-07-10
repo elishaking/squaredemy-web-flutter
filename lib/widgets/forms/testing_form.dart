@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_web/material.dart';
+import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/models/user.dart';
 import 'package:squaredemy_web/widgets/buttons.dart';
@@ -27,8 +28,8 @@ class _TestingFormState extends State<TestingForm> {
     final height = MediaQuery.of(context).size.height;
 
     return Container(
-      width: width * 0.4,
-      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+      width: width < 700 ? width * 0.9 : width * 0.4,
+      padding: EdgeInsets.symmetric(horizontal: responsiveSize(width, 40), vertical: responsiveSize(width, 40)),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20)
@@ -93,7 +94,7 @@ class _TestingFormState extends State<TestingForm> {
           ),
           SizedBox(height: 60,),
           _loading ? CircularProgressIndicator() : RaisedButton(
-            child: ButtonText("Join Testing",),
+            child: ButtonText("Join Testing", ),
             elevation: 0,
             onPressed: (){
               if(_formkey.currentState.validate()){
