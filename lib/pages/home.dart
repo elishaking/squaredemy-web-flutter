@@ -24,44 +24,8 @@ class HomePage extends StatelessWidget {
             /// [section] [1]
             Container(
               padding: contentPadding,
-              height: contentHeight - contentHeight * 0.1,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    width: splitWidth,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        HeadlineText("The Most Productive Way to Learn", textAlign: TextAlign.start,),
-                        SizedBox(height: 30,),
-                        TitleText("One sentence unique value proposition goes here ", textAlign: TextAlign.start,),
-                        SizedBox(height: 90,),
-                        Row(
-                          children: <Widget>[
-                            RaisedButton(
-                              child: ButtonText("Join Testing",),
-                              elevation: 0,
-                              onPressed: (){
-
-                              },
-                              color: Color.fromRGBO(34, 209, 164, 1),
-                              padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: splitWidth,
-                    // alignment: Alignment.centerRight,
-                    child: Image(
-                      image: AssetImage("phone.png"),
-                    ),
-                  )
-                ],
-              ),
+              height: contentWidth < 1100 ? contentHeight * 0.9 * 2 : contentHeight * 0.9,
+              child: _buildVPSection(context, contentWidth, splitWidth),
             ),
 
             /// [section] [2]
@@ -286,6 +250,54 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildVPSection(BuildContext context, double contentWidth, double splitWidth) {
+    bool isMobile = contentWidth < 1100;
+    if(isMobile) splitWidth = contentWidth - contentWidth * 0.1;
+
+    List<Widget> contents = [
+      Container(
+        width: splitWidth,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            HeadlineText("The Most Productive Way to Learn", textAlign: TextAlign.start,),
+            SizedBox(height: 30,),
+            TitleText("Squaredemy is an AI-driven learning platform that enhances learning productivity through customized curriculums that are generated based on fun and engaging interactions with the user", textAlign: TextAlign.start,),
+            SizedBox(height: 90,),
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  child: ButtonText("Join Testing",),
+                  elevation: 0,
+                  onPressed: (){
+
+                  },
+                  color: Color.fromRGBO(34, 209, 164, 1),
+                  padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                ),
+              ],
+            ),
+            SizedBox(height: 90,),
+          ],
+        ),
+      ),
+      Container(
+        width: splitWidth,
+        // alignment: Alignment.centerRight,
+        child: Image(
+          image: AssetImage("phone.png"),
+        ),
+      )
+    ];
+
+    return isMobile  ? Column(
+      children: contents,
+    ) : Row(
+      children: contents,
     );
   }
 
