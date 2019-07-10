@@ -135,7 +135,7 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image(
       height: 30,
-      image: AssetImage("logo-primary.png"),
+      image: AssetImage("logo_white.png"),
     );
   }
 }
