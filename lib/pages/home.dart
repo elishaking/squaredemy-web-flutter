@@ -14,8 +14,9 @@ class HomePage extends StatelessWidget {
     final double splitWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
     final double contentHeight = MediaQuery.of(context).size.height;
     final double contentWidth = MediaQuery.of(context).size.width;
-    print(responsiveSize(contentWidth, 50));
+
     final contentPadding = EdgeInsets.symmetric(horizontal: contentWidth * 0.1, vertical: responsiveSize(contentWidth, 50));
+    final buttonPadding = EdgeInsets.symmetric(horizontal: responsiveSize(contentWidth, 85), vertical: responsiveSize(contentWidth, 30));
 
     return Scaffold(
       backgroundColor: ThemeColors.primary,
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
             Container(
               padding: contentPadding,
               height: contentWidth < 1100 ? contentHeight * 2 : contentHeight * 0.9,
-              child: _buildVPSection(context, contentWidth, contentHeight * 0.9, splitWidth),
+              child: _buildVPSection(context, contentWidth, contentHeight * 0.9, splitWidth, buttonPadding),
             ),
 
             /// [section] [2]
@@ -40,19 +41,19 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Image(
-                    height: 400,
+                    height: responsiveSize(contentWidth, 400),
                     image: AssetImage("all-devices.png"),
                   ),
-                  SizedBox(height: 80,),
+                  SizedBox(height: responsiveSize(contentWidth, 80),),
                   HeadlineText("Available On All Screen sizes"),
-                  SizedBox(height: 40,),
+                  SizedBox(height: responsiveSize(contentWidth, 40),),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Flexible(
                         child: RaisedButton(
                           elevation: 0,
-                          padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                          padding: buttonPadding,
                           color: Color.fromRGBO(34, 209, 164, 1),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -110,7 +111,7 @@ class HomePage extends StatelessWidget {
                       children: <Widget>[
                         Image(
                           image: AssetImage("phone-2.png"),
-                          height: 500,
+                          height: responsiveSize(contentWidth, 500),
                         ),
                         SizedBox(height: 30,),
                         HeadlineText("Simple and Smart",),
@@ -209,7 +210,7 @@ class HomePage extends StatelessWidget {
                               onPressed: (){
                               },
                               color: ThemeColors.primaryButton,
-                              padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                              padding: buttonPadding,
                             )
                           ],
                         ),
@@ -255,7 +256,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildVPSection(BuildContext context, final double contentWidth, final double height, double splitWidth) {
+  Widget _buildVPSection(BuildContext context, final double contentWidth, final double height, double splitWidth, final buttonPadding) {
     bool isMobile = contentWidth < 1100;
     if(isMobile) splitWidth = contentWidth - contentWidth * 0.1;
 
@@ -280,7 +281,7 @@ class HomePage extends StatelessWidget {
 
                   },
                   color: Color.fromRGBO(34, 209, 164, 1),
-                  padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                  padding: buttonPadding,
                 ),
               ],
             ),
