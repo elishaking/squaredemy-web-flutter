@@ -10,7 +10,8 @@ class BodyText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(this.text, 
     style: TextStyle(
-      color: color
+      color: color,
+      fontWeight: FontWeight.w500
     ),
     overflow: TextOverflow.clip,);
   }
@@ -27,7 +28,8 @@ class ButtonText extends StatelessWidget {
     return Text(this.text, 
     style: TextStyle(
       color: this.color,
-      fontSize: 20
+      fontSize: 20,
+      fontWeight: FontWeight.w700
     ),);
   }
 }
@@ -44,7 +46,7 @@ class TitleText extends StatelessWidget {
     style: TextStyle(
       color: this.color,
       fontSize: 27,
-      fontWeight: FontWeight.normal
+      fontWeight: FontWeight.w700
     ),
     overflow: TextOverflow.clip,);
   }
