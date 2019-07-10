@@ -8,7 +8,8 @@ class BodyText extends StatelessWidget {
   final Map<double, double> fontSizes = {
     1700: 18,
     1500: 16,
-    1100: 14
+    1100: 14,
+    550: 12
   };
 
   BodyText(this.text, {this.color = Colors.white, this.textAlign = TextAlign.left});
@@ -33,7 +34,8 @@ class ButtonText extends StatelessWidget {
   final Map<double, double> fontSizes = {
     1700: 20,
     1500: 18,
-    1100: 16
+    1100: 16,
+    550: 14
   };
 
   ButtonText(this.text, {this.color = Colors.white});
@@ -57,7 +59,8 @@ class TitleText extends StatelessWidget {
   final Map<double, double> fontSizes = {
     1700: 27,
     1500: 24,
-    1100: 21
+    1100: 21,
+    550: 16
   };
 
   TitleText(this.text, {this.color = Colors.white, this.textAlign = TextAlign.center});
@@ -83,7 +86,8 @@ class HeadlineText extends StatelessWidget {
   final Map<double, double> fontSizes = {
     1700: 60,
     1500: 55,
-    1100: 50
+    1100: 50,
+    550: 40
   };
 
   HeadlineText(this.text, {this.textColor = Colors.white, this.textAlign = TextAlign.center});
