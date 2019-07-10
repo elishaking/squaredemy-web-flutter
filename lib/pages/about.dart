@@ -150,6 +150,103 @@ class AboutPage extends StatelessWidget {
                   )
                 ],
               ),
+            ),
+
+            /// [Footer]
+            Container(
+              height: contentHeight,
+              child: Stack(
+                children: <Widget>[
+                  ClipPath(
+                    clipper: TopBezelClipper(),
+                    child: Container(
+                      color: ThemeColors.primaryDark,
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
+                  ),
+                  Container(
+                    // width: double.infinity,
+                    alignment: Alignment.bottomCenter,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        HeadlineText("Stay updated about Squaredemy"),
+                        SizedBox(height: 90,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              width: contentWidth * 0.5,
+                              child: Form(
+                                child: TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                  decoration: InputDecoration(
+                                    hintText: "email",
+                                    hintStyle: TextStyle(color: Colors.white70),
+                                    contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 33),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(0),
+                                        bottomLeft: Radius.circular(10),
+                                        bottomRight: Radius.circular(0),
+                                      )
+                                    ),
+                                    filled: true,
+                                    fillColor: ThemeColors.primary
+                                  ),
+                                ),
+                              ),
+                            ),
+                            RaisedButton(
+                              child: ButtonText("Subscribe",),
+                              elevation: 0,
+                              onPressed: (){
+                              },
+                              color: ThemeColors.primaryButton,
+                              padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          
+            Container(
+              height: contentHeight / 4,
+              padding: contentPadding,
+              color: ThemeColors.primaryDark,
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    child: Row(
+                      children: <Widget>[
+                        Image(
+                          height: 30,
+                          image: AssetImage("logo_white.png"),
+                        ),
+                        SizedBox(width: 20,),
+                        BodyText("SQUAREDEMY")
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Row(
+                      children: <Widget>[
+                        
+                      ],
+                    ),
+                  )
+                ],
+              ),
             )
           ]
         )
