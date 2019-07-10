@@ -41,7 +41,7 @@ class TitleText extends StatelessWidget {
   final Color color;
   final TextAlign textAlign;
 
-  TitleText(this.text, {this.color = Colors.white, this.textAlign = TextAlign.left});
+  TitleText(this.text, {this.color = Colors.white, this.textAlign = TextAlign.center});
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class HeadlineText extends StatelessWidget {
   final Color textColor;
   final TextAlign textAlign;
 
-  HeadlineText(this.text, {this.textColor = Colors.white, this.textAlign = TextAlign.start});
+  HeadlineText(this.text, {this.textColor = Colors.white, this.textAlign = TextAlign.center});
 
   @override
   Widget build(BuildContext context) {

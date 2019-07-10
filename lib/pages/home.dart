@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
     final double splitWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
     final double contentHeight = MediaQuery.of(context).size.height;
     final double contentWidth = MediaQuery.of(context).size.width;
-    final contentPadding = EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 20);
+    final contentPadding = EdgeInsets.symmetric(horizontal: contentWidth * 0.1, vertical: contentHeight * 0.1);
 
     return Scaffold(
       backgroundColor: ThemeColors.primary,
@@ -33,9 +33,9 @@ class HomePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        HeadlineText("The Most Productive Way to Learn"),
+                        HeadlineText("The Most Productive Way to Learn", textAlign: TextAlign.start,),
                         SizedBox(height: 30,),
-                        TitleText("One sentence unique value proposition goes here "),
+                        TitleText("One sentence unique value proposition goes here ", textAlign: TextAlign.start,),
                         SizedBox(height: 90,),
                         Row(
                           children: <Widget>[
@@ -147,7 +147,7 @@ class HomePage extends StatelessWidget {
                           height: 500,
                         ),
                         SizedBox(height: 30,),
-                        HeadlineText("Simple and Smart"),
+                        HeadlineText("Simple and Smart",),
                         SizedBox(height: 30,),
                         TitleText("Let's Teach Squaredbot"),
                         SizedBox(height: 90,),
@@ -165,7 +165,7 @@ class HomePage extends StatelessWidget {
             /// [section] [4]
             Container(
               height: _appFeaturesContainerHeight(contentWidth, contentHeight),
-              padding: contentPadding,
+              padding: contentPadding.add(EdgeInsets.only(bottom: -contentHeight * 0.1)),
               color: Color.fromRGBO(20, 33, 57, 1),
               alignment: Alignment.center,
               child: _buildAppFeaturesWidget(contentWidth),
@@ -290,7 +290,7 @@ class HomePage extends StatelessWidget {
   }
 
   double _appFeaturesContainerHeight(final double contentWidth, final double contentHeight){
-    if(contentWidth < 1100) return contentHeight * 2.2;
+    if(contentWidth < 1100) return contentHeight * 2.3;
     if(contentWidth < 1500) return contentHeight * 1.5;
 
     return contentHeight;
