@@ -1,17 +1,26 @@
 [
   {
-    "family":"MaterialIcons",
+    "family": "MaterialIcons",
     "fonts": [
       {
-        "asset":"fonts/MaterialIcons-Regular.ttf"
+        "asset": "fonts/MaterialIcons-Regular.ttf"
       }
     ]
   },
   {
     "family": "Chivo",
     "fonts": [
-     {
+      {
+        "asset": "fonts/Chivo-Light.ttf"
+      },
+      {
         "asset": "fonts/Chivo-Regular.ttf"
+      },
+      {
+        "asset": "fonts/Chivo-Bold.ttf"
+      },
+      {
+        "asset": "fonts/Chivo-Black.ttf"
       }
     ]
   }

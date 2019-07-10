@@ -43,7 +43,8 @@ class TitleText extends StatelessWidget {
     return Text(this.text, 
     style: TextStyle(
       color: this.color,
-      fontSize: 27
+      fontSize: 27,
+      fontWeight: FontWeight.normal
     ),
     overflow: TextOverflow.clip,);
   }
@@ -61,7 +62,8 @@ class HeadlineText extends StatelessWidget {
     return Text(this.text, 
     style: TextStyle(
       color: textColor,
-      fontSize: 60
+      fontSize: 60,
+      fontWeight: FontWeight.w900
     ),
     textAlign: textAlign,
     overflow: TextOverflow.clip,);
