@@ -10,8 +10,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double contentWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
+    final double splitWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
     final double contentHeight = MediaQuery.of(context).size.height;
+    final double contentWidth = MediaQuery.of(context).size.width;
     final contentPadding = EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 20);
 
     return Scaffold(
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Container(
-                    width: contentWidth,
+                    width: splitWidth,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +54,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: contentWidth,
+                    width: splitWidth,
                     // alignment: Alignment.centerRight,
                     child: Image(
                       image: AssetImage("phone.png"),
@@ -166,15 +167,8 @@ class HomePage extends StatelessWidget {
               height: contentHeight,
               padding: contentPadding,
               color: Color.fromRGBO(20, 33, 57, 1),
-              child: GridView.count(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisCount: 3,
-                children: <Widget>[
-                  AppFeature("Artificial Intelligence", "Squaredemy uses AI to create the perfect learning experience", "ai.png"),
-                  AppFeature("Comprehensive Feedback", "Squaredemy keeps track of your entire learning progress and gives comprehensive feedback on areas of strength and potential improvement", "progress.png"),
-                  AppFeature("Valuable Content", "Squaredemy gives you access to a broad range of valuable learning resources", "library.png")
-                ],
-              ),
+              alignment: Alignment.center,
+              child: _buildAppFeaturesGrid(contentHeight, contentWidth),
             ),
           
             /// [section] [5]
@@ -218,7 +212,7 @@ class HomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                              width: contentWidth * 0.5,
+                              width: splitWidth * 0.5,
                               child: Form(
                                 child: TextFormField(
                                   keyboardType: TextInputType.emailAddress,
@@ -294,6 +288,23 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  GridView _buildAppFeaturesGrid(double contentHeight, double contentWidth) {
+    double aspectRatio = contentHeight / contentWidth;
+    
+
+    return GridView.count(
+      shrinkWrap: true,
+      crossAxisSpacing: 100,
+      crossAxisCount: 3,
+      childAspectRatio: aspectRatio,
+      children: <Widget>[
+        AppFeature("Artificial Intelligence", "Squaredemy uses AI to create the perfect learning experience", "ai.png"),
+        AppFeature("Comprehensive Feedback", "Squaredemy keeps track of your entire learning progress and gives comprehensive feedback on areas of strength and potential improvement", "progress.png"),
+        AppFeature("Valuable Content", "Squaredemy gives you access to a broad range of valuable learning resources", "library.png")
+      ],
+    );
+  }
 }
 
 class AppFeature extends StatelessWidget {
@@ -306,6 +317,8 @@ class AppFeature extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // width: ,
+      height: MediaQuery.of(context).size.height / 1.4,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -319,7 +332,10 @@ class AppFeature extends StatelessWidget {
           SizedBox(height: 80,),
           TitleText(title),
           SizedBox(height: 20,),
-          BodyText(details),
+          Container(
+            height: 30,
+            child: BodyText(details, textAlign: TextAlign.center,)
+          ),
           SizedBox(height: 30,),
           FlatButton(
             child: Row(

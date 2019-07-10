@@ -3,8 +3,9 @@ import 'package:flutter_web/material.dart';
 class BodyText extends StatelessWidget {
   final String text;
   final Color color;
+  final TextAlign textAlign;
 
-  BodyText(this.text, {this.color = Colors.white});
+  BodyText(this.text, {this.color = Colors.white, this.textAlign = TextAlign.left});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,8 @@ class BodyText extends StatelessWidget {
       color: color,
       fontWeight: FontWeight.w500
     ),
-    overflow: TextOverflow.clip,);
+    overflow: TextOverflow.clip,
+    textAlign: textAlign,);
   }
 }
 
