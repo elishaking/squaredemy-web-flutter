@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
 
             /// [section] [3]
             Container(
-              height: contentHeight,
+              height: contentWidth < 550 ? contentHeight * 1.2 : contentHeight,
               child: Stack(
                 children: <Widget>[
                   ClipPath(
@@ -103,6 +103,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Container(
+                    padding: contentPadding,
                     width: double.infinity,
                     alignment: Alignment.center,
                     child: Column(
@@ -317,9 +318,11 @@ class HomePage extends StatelessWidget {
     if(contentWidth < 1100){
       return Column(
         children: <Widget>[
-          AppFeature("Artificial Intelligence", "Squaredemy uses AI to create the perfect learning experience", "ai.png"),
-          AppFeature("Comprehensive Feedback", "Squaredemy keeps track of your entire learning progress and gives comprehensive feedback on areas of strength and potential improvement", "progress.png"),
-          AppFeature("Valuable Content", "Squaredemy gives you access to a broad range of valuable learning resources", "library.png")
+          AppFeature("Artificial Intelligence", "Squaredemy uses AI to create the perfect learning experience", "ai.png", isMobile: true,),
+          SizedBox(height: 20,),
+          AppFeature("Comprehensive Feedback", "Squaredemy keeps track of your entire learning progress and gives comprehensive feedback on areas of strength and potential improvement", "progress.png", isMobile: true,),
+          SizedBox(height: 20,),
+          AppFeature("Valuable Content", "Squaredemy gives you access to a broad range of valuable learning resources", "library.png", isMobile: true,)
         ],
       );
     }
@@ -371,8 +374,9 @@ class AppFeature extends StatelessWidget {
   final String title;
   final String details;
   final String imageUrl;
+  final bool isMobile;
 
-  AppFeature(this.title, this.details, this.imageUrl);
+  AppFeature(this.title, this.details, this.imageUrl, {this.isMobile = false});
 
   @override
   Widget build(BuildContext context) {
@@ -381,22 +385,22 @@ class AppFeature extends StatelessWidget {
 
     return Container(
       width: _appFeatureWidth(contentWidth),
-      height: MediaQuery.of(context).size.height / 1.4,
+      height: isMobile ? null : contentHeight / 1.4,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            height: 300,
+            height: isMobile ? null : 300,
             child: Image(
               image: AssetImage(imageUrl),
               height: 270,
             ),
           ),
-          SizedBox(height: 80,),
+          SizedBox(height: responsiveSize(contentWidth, 80),),
           TitleText(title, textAlign: TextAlign.center,),
-          SizedBox(height: 20,),
+          SizedBox(height: responsiveSize(contentWidth, 20),),
           Container(
-            height: 40, //todo: adjust based on screen size
+            height: isMobile ? null : 40, //todo: adjust based on screen size
             child: BodyText(details, textAlign: TextAlign.center,)
           ),
           SizedBox(height: 30,),
