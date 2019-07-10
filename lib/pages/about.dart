@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/widgets/clippers.dart';
 import 'package:squaredemy_web/widgets/forms/contact_form.dart';
@@ -27,9 +28,9 @@ class AboutPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  HeadlineText("Building Squaredemy"),
+                  HeadlineText("Building Squaredemy", textAlign: TextAlign.start,),
                   SizedBox(height: 30,),
-                  TitleText("Squaredemy is a comprehensive online learning platform brought to you by SKYBLAZAR with an aim to solve this problem. At its core is a well-informed AI (Artificial Intelligence) expert named Squaredbot that creates a custom and interactive learning curriculum for students based on a critical assessment of their needs."),
+                  TitleText("Squaredemy is a comprehensive online learning platform brought to you by SKYBLAZAR with an aim to solve this problem. At its core is a well-informed AI (Artificial Intelligence) expert named Squaredbot that creates a custom and interactive learning curriculum for students based on a critical assessment of their needs.", textAlign: TextAlign.start,),
                   SizedBox(height: 90,),
                   Row(
                     children: <Widget>[
@@ -50,23 +51,17 @@ class AboutPage extends StatelessWidget {
 
             /// [section] [2]
             Container(
-              height: contentHeight,
+              height: contentWidth < 1100 ? contentHeight * 1.8 : contentHeight,
               padding: contentPadding,
               color: ThemeColors.primaryLight,
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 100,),
+                  // SizedBox(height: 100,),
                   HeadlineText("Meet the Team"),
                   SizedBox(height: 40,),
                   TitleText("We love teamwork. We love the idea of everyone rallying together to help us win."),
-                  SizedBox(height: 100,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      TeamMember("KING ELISHA", "Founder/CEO", "king.png"),
-                      TeamMember("SHEDRACH ELURIHU", "Co-Founder/Designer", "shedrach.jpeg")
-                    ],
-                  )
+                  SizedBox(height: responsiveSize(contentWidth, 70),),
+                  _buildTeamMembers(contentWidth)
                 ],
               ),
             ),
@@ -252,6 +247,24 @@ class AboutPage extends StatelessWidget {
           ]
         )
       )
+    );
+  }
+
+  Widget _buildTeamMembers(final double contentWidth) {
+    List<Widget> members = [
+      TeamMember("KING ELISHA", "Founder/CEO", "king.png"),
+      SizedBox(height: 30,),
+      TeamMember("SHEDRACH ELURIHU", "Co-Founder/Designer", "shedrach.jpeg")
+    ];
+
+    if(contentWidth < 1100){
+      return Column(
+        children: members,
+      );
+    }
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: members,
     );
   }
 }
