@@ -112,23 +112,7 @@ class _TestingFormState extends State<TestingForm> {
                   setState(() {
                    _loading = false; 
                   });
-                  if(jsonDecode(response.body).contains("name")){
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        title: Text("Welcome Onboard"),
-                        content: Text("Please check your email for the next step"),
-                      )
-                    );
-                  } else{
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        title: Text("Something went wrong"),
-                        content: Text("Please try again"),
-                      )
-                    );
-                  }
+                  showResponseDialog(response, context);
                 });
               }
             },
@@ -140,6 +124,26 @@ class _TestingFormState extends State<TestingForm> {
     );
 
 
+  }
+
+  void showResponseDialog(http.Response response, BuildContext context) {
+    if(jsonDecode(response.body).contains("name")){
+      showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text("Welcome Onboard"),
+          content: Text("Please check your email for the next step"),
+        )
+      );
+    } else{
+      showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text("Something went wrong"),
+          content: Text("Please try again"),
+        )
+      );
+    }
   }
 
   @override
