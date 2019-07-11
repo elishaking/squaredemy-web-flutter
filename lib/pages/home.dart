@@ -9,6 +9,11 @@ import 'package:squaredemy_web/widgets/forms/testing_form.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
 class HomePage extends StatelessWidget {
+  final GlobalKey _vpKey = GlobalKey();
+  // final GlobalKey _allDevicesKey = GlobalKey();
+  // final GlobalKey _joinTestingKey = GlobalKey();
+  // final GlobalKey _appFeaturesKey = GlobalKey();
+  final GlobalKey _joinTestingFormKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +30,15 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             NavBar(contentPadding),
-            /// [section] [1]
+            /// [vp] [section]
             Container(
+              key: _vpKey,
               padding: contentPadding,
               height: contentWidth < 1100 ? contentHeight * 2 : contentHeight * 0.9,
               child: _buildVPSection(context, contentWidth, contentHeight * 0.9, splitWidth, buttonPadding),
             ),
 
-            /// [section] [2]
+            /// [all-devices] [section]
             Container(
               padding: contentPadding,
               height: contentHeight,
@@ -80,7 +86,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            /// [section] [2] [clipper]
+            /// [diagonal] [clipper]
             ClipPath(
               clipper: DiagonalCutClipper(),
               child: Container(
@@ -90,7 +96,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            /// [section] [3]
+            /// [join-testing] [section]
             Container(
               height: contentWidth < 550 ? contentHeight * 1.2 : contentHeight,
               child: Stack(
@@ -122,7 +128,7 @@ class HomePage extends StatelessWidget {
                         SizedBox(height: 90,),
                         PrimaryButton("Join Testing",
                         onPressed: (){
-                          
+                          Scrollable.ensureVisible(_joinTestingFormKey.currentContext);
                         },)
                       ],
                     ),
@@ -131,7 +137,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            /// [section] [4]
+            /// [app-features] [section]
             Container(
               height: _appFeaturesContainerHeight(contentWidth, contentHeight),
               padding: EdgeInsets.only(top: contentPadding.top, left: contentPadding.left, bottom: 0, right: contentPadding.right),
@@ -142,6 +148,7 @@ class HomePage extends StatelessWidget {
           
             /// [testing-form] [section]
             Container(
+              key: _joinTestingFormKey,
               height: contentHeight * 2,
               padding: contentPadding,
               child: Column(
@@ -231,7 +238,7 @@ class HomePage extends StatelessWidget {
                   child: ButtonText("Join Testing",),
                   elevation: 0,
                   onPressed: (){
-
+                    Scrollable.ensureVisible(_joinTestingFormKey.currentContext);
                   },
                   color: Color.fromRGBO(34, 209, 164, 1),
                   padding: buttonPadding,
