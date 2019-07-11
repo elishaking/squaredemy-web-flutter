@@ -21,7 +21,7 @@ class AboutPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             NavBar(contentPadding),
-            /// [section] [1]
+            /// [intro] [section]
             Container(
               padding: contentPadding,
               height: contentHeight - contentHeight * 0.05,
@@ -50,7 +50,7 @@ class AboutPage extends StatelessWidget {
               ),
             ),
 
-            /// [section] [2]
+            /// [team-members] [section]
             Container(
               height: contentWidth < 1100 ? contentHeight * 1.2 : contentHeight,
               width: double.infinity,
@@ -67,7 +67,7 @@ class AboutPage extends StatelessWidget {
                 ],
               ),
             ),
-            /// [section] [2] [clipper]
+            /// [diagonal] [clipper]
             ClipPath(
               clipper: DiagonalCutClipper(),
               child: Container(
@@ -77,7 +77,7 @@ class AboutPage extends StatelessWidget {
               ),
             ),
 
-            /// [section] [3]
+            /// [mission/vision] [section]
             Container(
               height: contentWidth < 1100 ? contentHeight * 2.3 : contentHeight,
               width: double.infinity,
@@ -103,7 +103,7 @@ class AboutPage extends StatelessWidget {
               ),
             ),
 
-            /// [section] [4]
+            /// [contact-form] [section]
             Container(
               height: contentHeight * 1.3,
               padding: contentPadding,
@@ -126,7 +126,7 @@ class AboutPage extends StatelessWidget {
               ),
             ),
 
-            /// [Footer]
+            /// [Footer] [section]
             Container(
               height: contentHeight,
               child: Stack(
