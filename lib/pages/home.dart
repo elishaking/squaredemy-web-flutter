@@ -3,6 +3,7 @@ import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/widgets/buttons.dart';
 import 'package:squaredemy_web/widgets/clippers.dart';
+import 'package:squaredemy_web/widgets/forms/subscribe_form.dart';
 import 'package:squaredemy_web/widgets/nav.dart';
 import 'package:squaredemy_web/widgets/forms/testing_form.dart';
 import 'package:squaredemy_web/widgets/text.dart';
@@ -139,7 +140,7 @@ class HomePage extends StatelessWidget {
               child: _buildAppFeaturesWidget(contentWidth),
             ),
           
-            /// [section] [5]
+            /// [testing-form] [section]
             Container(
               height: contentHeight * 2,
               padding: contentPadding,
@@ -155,6 +156,7 @@ class HomePage extends StatelessWidget {
               ),          
             ),
 
+            /// [subscribe-form] [section]
             Container(
               height: contentHeight,
               child: Stack(
@@ -167,24 +169,12 @@ class HomePage extends StatelessWidget {
                       height: double.infinity,
                     ),
                   ),
-                  Container(
-                    // width: double.infinity,
-                    alignment: Alignment.bottomCenter,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        HeadlineText("Stay updated about Squaredemy"),
-                        SizedBox(height: 90,),
-                        _buildSubscribeForm(contentWidth, splitWidth, buttonPadding),
-                      ],
-                    ),
-                  )
+                  SubscribeForm(contentWidth, splitWidth, buttonPadding)
                 ],
               ),
             ),
           
-            /// [Footer]
+            /// [Footer] [section]
             Container(
               height: contentHeight / 4,
               padding: contentPadding,
@@ -216,65 +206,6 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildSubscribeForm(final double contentWidth, double splitWidth, final EdgeInsets buttonPadding) {
-    final Form form = Form(
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        style: TextStyle(
-          color: Colors.white,
-        ),
-        decoration: InputDecoration(
-          hintText: "email",
-          hintStyle: TextStyle(color: Colors.white70),
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 33),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(contentWidth < 1100 ? 10 : 0),
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(contentWidth < 1100 ? 10 : 0),
-            )
-          ),
-          filled: true,
-          fillColor: ThemeColors.primary
-        ),
-      ),
-    );
-
-    RaisedButton subscribeButton = RaisedButton(
-      child: ButtonText("Subscribe",),
-      elevation: 0,
-      onPressed: (){
-      },
-      color: ThemeColors.primaryButton,
-      padding: buttonPadding,
-    );
-
-    if(contentWidth < 1100){
-      return Column(
-        children: <Widget>[
-          Container(
-            width: contentWidth * 0.9,
-            child: form,
-          ),
-          SizedBox(height: 20,),
-          subscribeButton
-        ],
-      );
-    }
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          width: splitWidth * 0.5,
-          child: form,
-        ),
-        subscribeButton
-      ],
     );
   }
 

@@ -3,6 +3,7 @@ import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/widgets/clippers.dart';
 import 'package:squaredemy_web/widgets/forms/contact_form.dart';
+import 'package:squaredemy_web/widgets/forms/subscribe_form.dart';
 import 'package:squaredemy_web/widgets/nav.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
@@ -14,6 +15,7 @@ class AboutPage extends StatelessWidget {
     final double splitWidth = contentWidth / 2 - contentWidth * 0.2;
     final double contactWidth = contentWidth * 0.4;
     final contentPadding = EdgeInsets.symmetric(horizontal: contentWidth * 0.1, vertical: 20);
+    final buttonPadding = EdgeInsets.symmetric(horizontal: responsiveSize(contentWidth, 85), vertical: responsiveSize(contentWidth, 30));
 
     return Scaffold(
       backgroundColor: ThemeColors.primary,
@@ -130,7 +132,7 @@ class AboutPage extends StatelessWidget {
               ),
             ),
 
-            /// [Footer] [section]
+            /// [subscribe-form] [section]
             Container(
               height: contentHeight,
               child: Stack(
@@ -143,61 +145,12 @@ class AboutPage extends StatelessWidget {
                       height: double.infinity,
                     ),
                   ),
-                  Container(
-                    // width: double.infinity,
-                    alignment: Alignment.bottomCenter,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        HeadlineText("Stay updated about Squaredemy"),
-                        SizedBox(height: 90,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              width: contentWidth * 0.5,
-                              child: Form(
-                                child: TextFormField(
-                                  keyboardType: TextInputType.emailAddress,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                  decoration: InputDecoration(
-                                    hintText: "email",
-                                    hintStyle: TextStyle(color: Colors.white70),
-                                    contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 33),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(0),
-                                        bottomLeft: Radius.circular(10),
-                                        bottomRight: Radius.circular(0),
-                                      )
-                                    ),
-                                    filled: true,
-                                    fillColor: ThemeColors.primary
-                                  ),
-                                ),
-                              ),
-                            ),
-                            RaisedButton(
-                              child: ButtonText("Subscribe",),
-                              elevation: 0,
-                              onPressed: (){
-                              },
-                              color: ThemeColors.primaryButton,
-                              padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
+                  SubscribeForm(contentWidth, splitWidth, buttonPadding)
                 ],
               ),
             ),
           
+            /// [Footer] [section]
             Container(
               height: contentHeight / 4,
               padding: contentPadding,
