@@ -81,7 +81,7 @@ class AboutPage extends StatelessWidget {
 
             /// [mission/vision] [section]
             Container(
-              height: contentWidth < 1100 ? contentHeight * 2.2 : contentHeight,
+              height: contentWidth < 1100 ? contentHeight * 2.3 : contentHeight,
               width: double.infinity,
               padding: contentPadding,
               child: Column(
