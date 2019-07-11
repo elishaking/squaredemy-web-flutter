@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
+import 'package:squaredemy_web/models/contact.dart';
 import 'package:squaredemy_web/models/user.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
@@ -13,11 +14,12 @@ class ContactForm extends StatefulWidget {
 }
 
 class _ContactFormState extends State<ContactForm> {
-  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  TextEditingController _emailCtrl1 = TextEditingController();
-  TextEditingController _emailCtrl2 = TextEditingController();
+  GlobalKey<FormState> _contactFormkey = GlobalKey<FormState>();
+  // TextEditingController _emailCtrl1 = TextEditingController();
+  // TextEditingController _emailCtrl2 = TextEditingController();
 
-  User _user = User();
+  // User _user = User();
+  ContactMessage _contactMessage = ContactMessage();
 
   bool _loading = false;
 
@@ -41,7 +43,7 @@ class _ContactFormState extends State<ContactForm> {
           // BodyText("* Get the first 3 months free"),
           SizedBox(height: 100,),
           Form(
-            key: _formkey,
+            key: _contactFormkey,
             child: Column(
               children: <Widget>[
                 TextFormField(
@@ -55,7 +57,7 @@ class _ContactFormState extends State<ContactForm> {
                     if(value.length > 200) return "200 characters limit";
                   },
                   onSaved: (String value){
-                    _user.name = value;
+                    _contactMessage.name = value;
                   },
                 ),
                 SizedBox(height: 60,),
@@ -70,7 +72,7 @@ class _ContactFormState extends State<ContactForm> {
                     if(value.length > 200) return "200 characters limit";
                   },
                   onSaved: (String value){
-                    _user.email = value;
+                    _contactMessage.email = value;
                   },
                 ),
                 SizedBox(height: 60,),
@@ -85,7 +87,10 @@ class _ContactFormState extends State<ContactForm> {
                     if(value.isEmpty) return "Please enter your email again";
                     if(int.tryParse(value.trim().replaceFirst("+", "")) == null) return "Please enter a valid phone number";
                     if(value.length > 200) return "200 characters limit";
-                  }
+                  },
+                  onSaved: (String value){
+                    _contactMessage.phone = value;
+                  },
                 ),
                 SizedBox(height: 60,),
                 TextFormField(
@@ -98,7 +103,7 @@ class _ContactFormState extends State<ContactForm> {
                     if(value.length > 200) return "200 characters limit";
                   },
                   onSaved: (String value){
-                    _user.email = value;
+                    _contactMessage.subject = value;
                   },
                 ),
                 SizedBox(height: 60,),
@@ -112,7 +117,7 @@ class _ContactFormState extends State<ContactForm> {
                     if(value.isEmpty) return "Please enter your message to us";
                   },
                   onSaved: (String value){
-                    _user.email = value;
+                    _contactMessage.message = value;
                   },
                 ),
               ],
@@ -123,21 +128,22 @@ class _ContactFormState extends State<ContactForm> {
             child: ButtonText("Contact Us",),
             elevation: 0,
             onPressed: (){
-              if(_formkey.currentState.validate()){
-                _formkey.currentState.save();
+              if(_contactFormkey.currentState.validate()){
+                _contactFormkey.currentState.save();
 
                 setState(() {
                  _loading = true; 
                 });
                 // print(jsonEncode(_user.toFirestoreMap()));
-                http.post("https://firestore.googleapis.com/v1/projects/squaredemy/databases/(default)/documents/users?documentId=${_user.email}",
+                http.post("https://firestore.googleapis.com/v1/projects/squaredemy/databases/(default)/documents/contactMessages",
                 // headers: {
                 //   "Content-Type": "application/json"
                 // },
-                body: jsonEncode(_user.toFirestoreMap())).then((http.Response response) {
+                body: jsonEncode(_contactMessage.toFirestoreMap())).then((http.Response response) {
                   setState(() {
                    _loading = false; 
                   });
+                  print(response.body);
                   if(jsonDecode(response.body).contains("name")){
                     showDialog(
                       context: context,
@@ -170,8 +176,8 @@ class _ContactFormState extends State<ContactForm> {
 
   @override
   void dispose() {
-    _emailCtrl1.dispose();
-    _emailCtrl2.dispose();
+    // _emailCtrl1.dispose();
+    // _emailCtrl2.dispose();
     super.dispose();
   }
 }
