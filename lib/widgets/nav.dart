@@ -6,8 +6,9 @@ import 'package:squaredemy_web/widgets/text.dart';
 
 class NavBar extends StatelessWidget {
   final EdgeInsetsGeometry contentPadding;
+  final GlobalKey contactFormKey;
   
-  NavBar(this.contentPadding);
+  NavBar(this.contentPadding, {this.contactFormKey});
 
   @override
   Widget build(BuildContext context) {
@@ -39,21 +40,22 @@ class NavBar extends StatelessWidget {
           icon: Icon(Icons.menu, color: Colors.white,),
           onPressed: (){
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (BuildContext context) => MobileNav(contentPadding)
+              builder: (BuildContext context) => MobileNav(contactFormKey, contentPadding)
             ));
           },
         ),
       );  
     }
 
-    return MenuItems();
+    return MenuItems(contactFormKey: contactFormKey,);
   }
 }
 
 class MenuItems extends StatelessWidget {
   final bool mobile;
+  final GlobalKey contactFormKey;
   
-  MenuItems({this.mobile = false});
+  MenuItems({this.contactFormKey, this.mobile = false});
 
   @override
   Widget build(BuildContext context) {
@@ -77,9 +79,15 @@ class MenuItems extends StatelessWidget {
       FlatButton(
         child: BodyText("CONTACT"),
         onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => AboutPage()
-          ));
+          if(contactFormKey != null){
+            if(mobile) Navigator.of(context).pop();
+            
+            Scrollable.ensureVisible(contactFormKey.currentContext);
+          } else{
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => AboutPage()
+            ));
+          }
         },
       ),
     ];
@@ -95,8 +103,9 @@ class MenuItems extends StatelessWidget {
 
 class MobileNav extends StatelessWidget {
   final EdgeInsetsGeometry contentPadding;
+  final GlobalKey contactFormKey;
 
-  MobileNav(this.contentPadding);
+  MobileNav(this.contactFormKey, this.contentPadding);
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +130,7 @@ class MobileNav extends StatelessWidget {
               ),
             ),
             Container(
-              child: MenuItems(mobile: true,),
+              child: MenuItems(contactFormKey: contactFormKey, mobile: true,),
             )
           ],
         ),

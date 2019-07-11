@@ -8,6 +8,8 @@ import 'package:squaredemy_web/widgets/nav.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
 class AboutPage extends StatelessWidget {
+  final GlobalKey _contactFormKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     final double contentHeight = MediaQuery.of(context).size.height;
@@ -22,7 +24,7 @@ class AboutPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            NavBar(contentPadding),
+            NavBar(contentPadding, contactFormKey: _contactFormKey,),
             /// [intro] [section]
             Container(
               padding: contentPadding,
@@ -107,6 +109,7 @@ class AboutPage extends StatelessWidget {
 
             /// [contact-form] [section]
             Container(
+              key: _contactFormKey,
               height: contentWidth < 1100 ? contentHeight * 1.7 : contentHeight * 1.3,
               padding: contentPadding,
               child: contentWidth < 1100 ? Container(
