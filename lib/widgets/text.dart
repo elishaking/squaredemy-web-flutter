@@ -58,10 +58,10 @@ class TitleText extends StatelessWidget {
   final TextAlign textAlign;
 
   final Map<double, double> fontSizes = {
-    1700: 27,
-    1500: 24,
-    1100: 21,
-    550: 16
+    1700: 24,
+    1500: 21,
+    1100: 16,
+    550: 14
   };
 
   TitleText(this.text, {this.color = Colors.white, this.textAlign = TextAlign.center});
@@ -85,10 +85,10 @@ class HeadlineText extends StatelessWidget {
   final TextAlign textAlign;
 
   final Map<double, double> fontSizes = {
-    1700: 60,
-    1500: 55,
-    1100: 50,
-    550: 40
+    1700: 52,
+    1500: 47,
+    1100: 42,
+    550: 37
   };
 
   HeadlineText(this.text, {this.textColor = Colors.white, this.textAlign = TextAlign.center});
