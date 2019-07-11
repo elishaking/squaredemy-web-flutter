@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_web/material.dart';
+import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/models/user.dart';
 import 'package:squaredemy_web/widgets/text.dart';
@@ -26,8 +27,8 @@ class _ContactFormState extends State<ContactForm> {
     final height = MediaQuery.of(context).size.height;
 
     return Container(
-      width: width * 0.4,
-      padding: EdgeInsets.symmetric(horizontal: 70, vertical: 40),
+      width: width < 1100 ? width * 0.9 : width * 0.4,
+      padding: EdgeInsets.symmetric(horizontal: responsiveSize(width, 40), vertical: responsiveSize(width, 40)),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20)
