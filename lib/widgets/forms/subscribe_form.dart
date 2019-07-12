@@ -36,15 +36,17 @@ class _SubscribeFormState extends State<SubscribeForm> {
           HeadlineText("Stay updated about Squaredemy"),
           SizedBox(height: 90,),
           _buildSubscribeForm(widget.contentWidth, widget.splitWidth, widget.buttonPadding),
+          SizedBox(height: 20,)
         ],
       ),
     );
   }
 
   Widget _buildSubscribeForm(final double contentWidth, double splitWidth, final EdgeInsets buttonPadding) {
-    final Form form = Form(
+     Form form = Form(
+      key: _subscribeFormKey,
       child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
+        // keyboardType: TextInputType.emailAddress,
         style: TextStyle(
           color: Colors.white,
         ),
@@ -76,29 +78,36 @@ class _SubscribeFormState extends State<SubscribeForm> {
       child: ButtonText("Subscribe",),
       elevation: 0,
       onPressed: (){
-        _subscribeFormKey.currentState.save();
-        
-        _user.name = "";
-        _user.isTester = false;
+        print("reeexddxxx");
+        if(_subscribeFormKey.currentState.validate()){
+          _subscribeFormKey.currentState.save();
 
-        setState(() {
-          _loading = true; 
-        });
-        // print(jsonEncode(_user.toFirestoreMap()));
-        http.post("https://firestore.googleapis.com/v1/projects/squaredemy/databases/(default)/documents/users?documentId=${_user.email}",
-        // headers: {
-        //   "Content-Type": "application/json"
-        // },
-        body: jsonEncode(_user.toFirestoreMap())).then((http.Response response) {
+          _user.name = "";
+          _user.isTester = false;
+
           setState(() {
-            _loading = false; 
+            _loading = true; 
           });
-          showResponseDialog(response, context);
-        });
+          // print(jsonEncode(_user.toFirestoreMap()));
+          http.post("https://firestore.googleapis.com/v1/projects/squaredemy/databases/(default)/documents/users?documentId=${_user.email}",
+          // headers: {
+          //   "Content-Type": "application/json"
+          // },
+          body: jsonEncode(_user.toFirestoreMap())).then((http.Response response) {
+            setState(() {
+              _loading = false; 
+            });
+            showResponseDialog(response, context);
+          });
+        }
       },
       color: ThemeColors.primaryButton,
       padding: buttonPadding,
     );
+
+    if(_loading){
+      return CircularProgressIndicator();
+    }
 
     if(contentWidth < 1100){
       return Column(
