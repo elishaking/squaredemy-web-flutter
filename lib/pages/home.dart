@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
             Container(
               key: _vpKey,
               padding: contentPadding,
-              height: contentWidth < 1100 ? contentHeight * 2 : contentHeight * 0.9,
+              height: contentWidth < 1100 ? null : contentHeight * 0.9,
               child: _buildVPSection(context, contentWidth, contentHeight * 0.9, splitWidth, buttonPadding),
             ),
 
@@ -98,7 +98,7 @@ class HomePage extends StatelessWidget {
 
             /// [join-testing] [section]
             Container(
-              height: contentWidth < 550 ? contentHeight * 1.2 : contentHeight,
+              height: contentWidth < 550 ? null : contentHeight,
               child: Stack(
                 children: <Widget>[
                   ClipPath(

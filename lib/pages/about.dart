@@ -56,7 +56,7 @@ class AboutPage extends StatelessWidget {
 
             /// [team-members] [section]
             Container(
-              height: contentWidth < 1100 ? contentHeight * 1.3 : contentHeight,
+              height: contentWidth < 1100 ? null : contentHeight,
               width: double.infinity,
               padding: contentPadding,
               color: ThemeColors.primaryLight,
@@ -83,7 +83,7 @@ class AboutPage extends StatelessWidget {
 
             /// [mission/vision] [section]
             Container(
-              height: contentWidth < 1100 ? contentHeight * 2.3 : contentHeight,
+              height: contentWidth < 1100 ? null : contentHeight * 1.3,
               width: double.infinity,
               padding: contentPadding,
               child: Column(
@@ -110,7 +110,7 @@ class AboutPage extends StatelessWidget {
             /// [contact-form] [section]
             Container(
               key: _contactFormKey,
-              height: contentWidth < 1100 ? contentHeight * 1.7 : contentHeight * 1.3,
+              height: contentWidth < 1100 ? null : contentHeight * 1.3,
               padding: contentPadding,
               child: contentWidth < 1100 ? Container(
                 // alignment: Alignment.center,
