@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
             /// [all-devices] [section]
             Container(
               padding: contentPadding,
-              height: contentHeight,
+              // height: contentHeight,
               width: double.infinity,
               color: ThemeColors.primaryLight,
               child: Column(
@@ -65,8 +65,11 @@ class HomePage extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Icon(Icons.gesture),
-                              SizedBox(width: 20,),
+                              Image(
+                                image: AssetImage("playstore.png"),
+                                height: 57,
+                              ),
+                              SizedBox(width: 37,),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
@@ -149,7 +152,7 @@ class HomePage extends StatelessWidget {
             /// [testing-form] [section]
             Container(
               key: _joinTestingFormKey,
-              height: contentHeight * 2,
+              // height: contentHeight * 2,
               padding: contentPadding,
               child: Column(
                 children: <Widget>[
@@ -173,7 +176,7 @@ class HomePage extends StatelessWidget {
                     child: Container(
                       color: ThemeColors.primaryDark,
                       width: double.infinity,
-                      height: double.infinity,
+                      height: double.infinity, //! fix when remove height
                     ),
                   ),
                   SubscribeForm(contentWidth, splitWidth, buttonPadding)
@@ -369,7 +372,8 @@ class AppFeature extends StatelessWidget {
               children: <Widget>[
                 BodyText("Learn More"),
                 SizedBox(width: 10,),
-                Icon(Icons.arrow_forward_ios, color: Colors.white,)
+                // Icon(Icons.arrow_forward_ios, color: Colors.white,)
+                BodyText(">")
               ],
             ),
             onPressed: (){
