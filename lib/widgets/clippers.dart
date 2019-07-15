@@ -19,11 +19,15 @@ class DiagonalCutClipper extends CustomClipper<Path>{
 }
 
 class TopBezelClipper extends CustomClipper<Path>{
+  final double scale;
+
+  TopBezelClipper({this.scale = 1});
+
   @override
   Path getClip(Size size) {
     Path path = Path();
-    path.moveTo(0, size.height / 1.2);
-    path.quadraticBezierTo(size.width / 1.1, size.height / 4, size.width, size.height / 1.1);
+    path.moveTo(0, size.height / 1.2 / scale);
+    path.quadraticBezierTo(size.width / 1.1 / scale, size.height / 4 / scale, size.width, size.height / 1.1 / scale);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
     path.close();
