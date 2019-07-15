@@ -41,6 +41,31 @@ class HomePage extends StatelessWidget {
               child: _buildVPSection(context, contentWidth, contentHeight * 0.9, splitWidth, buttonPadding),
             ),
 
+
+            /// [squaredbot intro] [section]
+            Container(
+              padding: contentPadding,
+              color: Colors.white,
+              child: Column(
+                children: <Widget>[
+                  Image(
+                    image: AssetImage("squaredbot.png"),
+                  ),
+                  SizedBox(height: responsiveSize(contentWidth, 90),),
+                  HeadlineText("Hi there, I'm Squaredbot", textColor: Color.fromRGBO(95, 143, 238, 1),),
+                  SizedBox(height: 30,),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: contentWidth * 0.05, vertical: contentHeight * 0.05),
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(95, 143, 238, 1),
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+                    child: BodyText("I'm the AI that behind Squaredemy. Learning anything new can be challenging and sometimes boring. But hey, we all know that Education is the engine of prosperity, so something must be done about the process of learning new things. That's why I was created with the sole purpose of making learning a fun, interactive and engaging process. You'll certainly discover that you're not only boosting your learning speed, but with my help, you'll also find the process of learning even the most mundane concepts very interesting", textAlign: TextAlign.center,),
+                  )
+                ],
+              ),
+            ),
+
             /// [all-devices] [section]
             Container(
               padding: contentPadding,
