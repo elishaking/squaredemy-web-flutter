@@ -68,7 +68,10 @@ class HomePage extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Icon(Icons.gesture),
+                              Image(
+                                image: AssetImage("playstore.png"),
+                                height: 40,
+                              ),
                               SizedBox(width: 20,),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
