@@ -162,8 +162,42 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   // SizedBox(height: 230,),
                   HeadlineText("Help Squaredbot"),
-                  // SizedBox(height: 30,),
-                  // BodyText("Squaredbot is "),
+                  SizedBox(height: 30,),
+                  BodyText("Hi there, I need your help to get smarter. I'm still in the process of building myself to be your most trusted guide. To achieve this, I just need you to do three things:"),
+                  SizedBox(height: 20,),
+                  ListTile(
+                    leading: Image(
+                      image: AssetImage("playstore.png"),
+                      height: 40,
+                    ),
+                    title: BodyText("Join the Alpha Testing group by filling the form below"),
+                  ),
+                  SizedBox(height: 20,),
+                  ListTile(
+                    leading: Image(
+                      image: AssetImage("playstore.png"),
+                      height: 40,
+                    ),
+                    title: BodyText("Download and install Squaredemy - where I reside"),
+                  ),
+                  SizedBox(height: 20,),
+                  ListTile(
+                    leading: Image(
+                      image: AssetImage("playstore.png"),
+                      height: 40,
+                    ),
+                    title: Column(
+                      children: <Widget>[
+                        BodyText("This is the most important part: I need you to begin interacting with me"),
+                        SizedBox(height: 10,),
+                        BodyText("Ask me as many questions as you can"),
+                        SizedBox(height: 10,),
+                        BodyText("If I'm unable to provide a suitable response, then CONGRATULATIONS, you have succeeded in expanding my Cognitive Database"),
+                        SizedBox(height: 10,),
+                        BodyText("The next update of Squaredemy will contain an improved version of me - now with the capacity to tackle all your requests/questions")
+                      ],
+                    ),
+                  ),
                   SizedBox(height: 50,),
                   TestingForm()
                 ],
