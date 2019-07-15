@@ -142,7 +142,7 @@ class HomePage extends StatelessWidget {
 
             /// [app-features] [section]
             Container(
-              height: _appFeaturesContainerHeight(contentWidth, contentHeight),
+              height: contentWidth < 1500 ? null : contentHeight, //_appFeaturesContainerHeight(contentWidth, contentHeight),
               padding: EdgeInsets.only(top: contentPadding.top, left: contentPadding.left, bottom: 0, right: contentPadding.right),
               color: Color.fromRGBO(20, 33, 57, 1),
               alignment: Alignment.center,
