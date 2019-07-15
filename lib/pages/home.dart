@@ -152,7 +152,7 @@ class HomePage extends StatelessWidget {
             /// [testing-form] [section]
             Container(
               key: _joinTestingFormKey,
-              height: contentHeight * 2,
+              // height: contentHeight * 2,
               padding: contentPadding,
               child: Column(
                 children: <Widget>[
