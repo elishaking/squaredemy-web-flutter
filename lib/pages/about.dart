@@ -26,10 +26,11 @@ class AboutPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             NavBar(contentPadding, contactFormKey: _contactFormKey,),
+
             /// [intro] [section]
             Container(
               padding: contentPadding,
-              height: contentWidth < 1100 ? null : contentHeight * 0.9,
+              height: contentHeight * 0.95,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -32,6 +32,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             NavBar(contentPadding),
+            
             /// [vp] [section]
             Container(
               key: _vpKey,
