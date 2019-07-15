@@ -143,7 +143,7 @@ class AboutPage extends StatelessWidget {
               child: Stack(
                 children: <Widget>[
                   ClipPath(
-                    clipper: TopBezelClipper(),
+                    clipper: TopBezelClipper(scale: 2),
                     child: Container(
                       color: ThemeColors.primaryDark,
                       width: double.infinity,
