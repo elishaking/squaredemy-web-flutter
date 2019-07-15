@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             NavBar(contentPadding),
-            
+
             /// [vp] [section]
             Container(
               key: _vpKey,
@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
             /// [all-devices] [section]
             Container(
               padding: contentPadding,
-              height: contentHeight,
+              // height: contentHeight,
               width: double.infinity,
               color: ThemeColors.primaryLight,
               child: Column(
