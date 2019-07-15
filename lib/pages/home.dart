@@ -15,6 +15,8 @@ class HomePage extends StatelessWidget {
   // final GlobalKey _appFeaturesKey = GlobalKey();
   final GlobalKey _joinTestingFormKey = GlobalKey();
 
+  final Container stack = Container(height: 200,);
+
   @override
   Widget build(BuildContext context) {
     final double splitWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
@@ -98,15 +100,16 @@ class HomePage extends StatelessWidget {
 
             /// [join-testing] [section]
             Container(
-              height: contentWidth < 550 ? contentHeight * 1.2 : contentHeight,
+              height: contentWidth < 550 ? null : contentHeight,
               child: Stack(
+                alignment: Alignment.bottomCenter,
                 children: <Widget>[
                   ClipPath(
                     clipper: TopBezelClipper(),
                     child: Container(
                       color: Color.fromRGBO(20, 33, 57, 1),
                       width: double.infinity,
-                      height: double.infinity,
+                      height: contentHeight,
                     ),
                   ),
                   Container(
