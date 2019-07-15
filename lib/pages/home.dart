@@ -19,9 +19,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double splitWidth = MediaQuery.of(context).size.width / 2 - MediaQuery.of(context).size.width * 0.1;
     final double contentHeight = MediaQuery.of(context).size.height;
     final double contentWidth = MediaQuery.of(context).size.width;
+    final double splitWidth = contentWidth * 0.4;
 
     final contentPadding = EdgeInsets.symmetric(horizontal: contentWidth * 0.1, vertical: responsiveSize(contentWidth, 50));
     final buttonPadding = EdgeInsets.symmetric(horizontal: responsiveSize(contentWidth, 85), vertical: responsiveSize(contentWidth, 30));

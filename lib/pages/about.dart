@@ -14,9 +14,10 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final double contentHeight = MediaQuery.of(context).size.height;
     final double contentWidth = MediaQuery.of(context).size.width;
-    final double splitWidth = contentWidth / 2 - contentWidth * 0.2;
+    final double splitWidth = contentWidth * 0.4;
     final double contactWidth = contentWidth * 0.4;
-    final contentPadding = EdgeInsets.symmetric(horizontal: contentWidth * 0.1, vertical: 20);
+
+    final contentPadding = EdgeInsets.symmetric(horizontal: contentWidth * 0.1, vertical: responsiveSize(contentWidth, 50));
     final buttonPadding = EdgeInsets.symmetric(horizontal: responsiveSize(contentWidth, 85), vertical: responsiveSize(contentWidth, 30));
 
     return Scaffold(
@@ -28,7 +29,7 @@ class AboutPage extends StatelessWidget {
             /// [intro] [section]
             Container(
               padding: contentPadding,
-              height: contentHeight - contentHeight * 0.05,
+              height: contentWidth < 1100 ? null : contentHeight * 0.9,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
