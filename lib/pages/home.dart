@@ -212,8 +212,11 @@ class HomePage extends StatelessWidget {
                       height: 40,
                     ),
                     title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        BodyText("This is the most important part: I need you to begin interacting with me"),
+                        TitleText("This is the most important part"),
+                        SizedBox(height: 15,),
+                        BodyText("Start interacting with me"),
                         SizedBox(height: 10,),
                         BodyText("Ask me as many questions as you can"),
                         SizedBox(height: 10,),
