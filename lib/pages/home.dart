@@ -179,7 +179,10 @@ class HomePage extends StatelessWidget {
                       height: double.infinity,
                     ),
                   ),
-                  SubscribeForm(contentWidth, splitWidth, buttonPadding)
+                  Container(
+                    padding: contentPadding,
+                    child: SubscribeForm(contentWidth, splitWidth, buttonPadding),
+                  )
                 ],
               ),
             ),
