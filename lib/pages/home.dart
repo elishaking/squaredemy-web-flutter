@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
             /// [all-devices] [section]
             Container(
               padding: contentPadding,
-              // height: contentHeight,
+              height: contentHeight,
               width: double.infinity,
               color: ThemeColors.primaryLight,
               child: Column(
@@ -65,11 +65,8 @@ class HomePage extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Image(
-                                image: AssetImage("playstore.png"),
-                                height: 57,
-                              ),
-                              SizedBox(width: 37,),
+                              Icon(Icons.gesture),
+                              SizedBox(width: 20,),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
@@ -101,7 +98,7 @@ class HomePage extends StatelessWidget {
 
             /// [join-testing] [section]
             Container(
-              height: contentWidth < 550 ? null : contentHeight,
+              height: contentWidth < 550 ? contentHeight * 1.2 : contentHeight,
               child: Stack(
                 children: <Widget>[
                   ClipPath(
@@ -152,7 +149,7 @@ class HomePage extends StatelessWidget {
             /// [testing-form] [section]
             Container(
               key: _joinTestingFormKey,
-              // height: contentHeight * 2,
+              height: contentHeight * 2,
               padding: contentPadding,
               child: Column(
                 children: <Widget>[
@@ -176,7 +173,7 @@ class HomePage extends StatelessWidget {
                     child: Container(
                       color: ThemeColors.primaryDark,
                       width: double.infinity,
-                      height: double.infinity, //! fix when remove height
+                      height: double.infinity,
                     ),
                   ),
                   SubscribeForm(contentWidth, splitWidth, buttonPadding)
@@ -252,6 +249,8 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      if(contentWidth > height)
+        SizedBox(height: 90,),
       Container(
         width: splitWidth,
         height: height,
@@ -372,7 +371,6 @@ class AppFeature extends StatelessWidget {
               children: <Widget>[
                 BodyText("Learn More"),
                 SizedBox(width: 10,),
-                // Icon(Icons.arrow_forward_ios, color: Colors.white,)
                 BodyText(">")
               ],
             ),
