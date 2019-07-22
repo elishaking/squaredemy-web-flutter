@@ -193,6 +193,18 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 20,),
                   Row(
                     children: <Widget>[
+                      Expanded(
+                        child: TitleText("PHASE 1", color: ThemeColors.primaryButton,),
+                      ),
+                      Expanded(
+                        child: TitleText("PHASE 2", color: ThemeColors.primaryButton,),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20,),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
                       Flexible(
                         child: Column(
                           children: <Widget>[
