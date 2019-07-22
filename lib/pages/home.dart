@@ -190,7 +190,7 @@ class HomePage extends StatelessWidget {
                   HeadlineText("Help Squaredbot"),
                   SizedBox(height: 30,),
                   BodyText("Hi there, I need your help to get smarter. I'm still in the process of building myself to be your most trusted guide. To achieve this, I just need you to do a few things"),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 50,),
                   ..._buildTestingFormOnboarding(contentWidth),
                   SizedBox(height: 50,),
                   TestingForm()

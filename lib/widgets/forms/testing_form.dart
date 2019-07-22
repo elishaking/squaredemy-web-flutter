@@ -36,7 +36,7 @@ class _TestingFormState extends State<TestingForm> {
       ),
       child: Column(
         children: <Widget>[
-          HeadlineText("Join The Building Group", textColor: ThemeColors.primary,
+          HeadlineText("Join Testing Group", textColor: ThemeColors.primary,
           textAlign: TextAlign.center,),
           // SizedBox(height: 10,),
           // BodyText("* Get the first 3 months free"),
