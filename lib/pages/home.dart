@@ -431,10 +431,10 @@ class HomePage extends StatelessWidget {
       Row(
         children: <Widget>[
           Expanded(
-            child: TitleText("PHASE 1", color: ThemeColors.primaryButton,),
+            child: TitleText("PHASE 1", color: ThemeColors.primaryButton, textAlign: TextAlign.start,),
           ),
           Expanded(
-            child: TitleText("PHASE 2", color: ThemeColors.primaryButton,),
+            child: TitleText("PHASE 2", color: ThemeColors.primaryButton, textAlign: TextAlign.start,),
           ),
         ],
       ),
