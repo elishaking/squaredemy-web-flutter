@@ -193,62 +193,66 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 20,),
                   Row(
                     children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          ListTile(
-                            leading: Image(
-                              image: AssetImage("join.png"),
-                              height: 40,
+                      Flexible(
+                        child: Column(
+                          children: <Widget>[
+                            ListTile(
+                              leading: Image(
+                                image: AssetImage("join.png"),
+                                height: 40,
+                              ),
+                              title: BodyText("Join the Alpha Testing group by filling the form below"),
                             ),
-                            title: BodyText("Join the Alpha Testing group by filling the form below"),
-                          ),
-                          SizedBox(height: 20,),
-                          ListTile(
-                            leading: Image(
-                              image: AssetImage("join.png"),
-                              height: 40,
+                            SizedBox(height: 20,),
+                            ListTile(
+                              leading: Image(
+                                image: AssetImage("join.png"),
+                                height: 40,
+                              ),
+                              title: BodyText("Download and install Squaredemy - where I reside"),
                             ),
-                            title: BodyText("Download and install Squaredemy - where I reside"),
-                          ),
-                          // SizedBox(height: 20,),
-                        ],
+                            // SizedBox(height: 20,),
+                          ],
+                        ),
                       ),
-                      Column(
-                        children: <Widget>[
-                          // TitleText("This is the most important part"),
-                          // SizedBox(height: 15,),
-                          ListTile(
-                            leading: Image(
-                              image: AssetImage('interact.png'),
-                              height: 40,
+                      Flexible(
+                        child: Column(
+                          children: <Widget>[
+                            // TitleText("This is the most important part"),
+                            // SizedBox(height: 15,),
+                            ListTile(
+                              leading: Image(
+                                image: AssetImage('interact.png'),
+                                height: 40,
+                              ),
+                              title: BodyText("Start interacting with me"),
                             ),
-                            title: BodyText("Start interacting with me"),
-                          ),
-                          SizedBox(height: 20,),
-                          ListTile(
-                            leading: Image(
-                              image: AssetImage('question.png'),
-                              height: 40,
+                            SizedBox(height: 20,),
+                            ListTile(
+                              leading: Image(
+                                image: AssetImage('question.png'),
+                                height: 40,
+                              ),
+                              title: BodyText("Ask me as many questions as you can"),
                             ),
-                            title: BodyText("Ask me as many questions as you can"),
-                          ),
-                          SizedBox(height: 20,),
-                          ListTile(
-                            leading: Image(
-                              image: AssetImage('expand.png'),
-                              height: 40,
+                            SizedBox(height: 20,),
+                            ListTile(
+                              leading: Image(
+                                image: AssetImage('expand.png'),
+                                height: 40,
+                              ),
+                              title: BodyText("If I'm unable to provide a suitable response, then CONGRATULATIONS, you have succeeded in expanding my Cognitive Database"),
                             ),
-                            title: BodyText("If I'm unable to provide a suitable response, then CONGRATULATIONS, you have succeeded in expanding my Cognitive Database"),
-                          ),
-                          SizedBox(height: 20,),
-                          ListTile(
-                            leading: Image(
-                              image: AssetImage('update.png'),
-                              height: 40,
+                            SizedBox(height: 20,),
+                            ListTile(
+                              leading: Image(
+                                image: AssetImage('update.png'),
+                                height: 40,
+                              ),
+                              title: BodyText("The next update of Squaredemy will contain an improved version of me - now with the capacity to tackle all your requests/questions")
                             ),
-                            title: BodyText("The next update of Squaredemy will contain an improved version of me - now with the capacity to tackle all your requests/questions")
-                          ),
-                        ],
+                          ],
+                        ),
                       )
                     ],
                   ),
