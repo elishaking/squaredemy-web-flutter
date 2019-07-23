@@ -1,20 +1,22 @@
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/pages/about.dart';
+import 'package:squaredemy_web/pages/blog.dart';
 import 'package:squaredemy_web/pages/home.dart';
 import 'package:squaredemy_web/widgets/text.dart';
 
 class NavBar extends StatelessWidget {
   final EdgeInsetsGeometry contentPadding;
   final GlobalKey contactFormKey;
+  final bool applyPadding;
   
-  NavBar(this.contentPadding, {this.contactFormKey});
+  NavBar(this.contentPadding, {this.contactFormKey, this.applyPadding = true});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       // padding: contentPadding,
-      padding: EdgeInsets.symmetric(horizontal: contentPadding.horizontal / 2, vertical: contentPadding.vertical / 4),
+      padding: applyPadding ? EdgeInsets.symmetric(horizontal: contentPadding.horizontal / 2, vertical: contentPadding.vertical / 4) : EdgeInsets.all(0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -73,6 +75,14 @@ class MenuItems extends StatelessWidget {
         onPressed: (){
           Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => AboutPage()
+          ));
+        },
+      ),
+      FlatButton(
+        child: BodyText("BLOG"),
+        onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => BlogPage()
           ));
         },
       ),
