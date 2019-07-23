@@ -42,28 +42,7 @@ class BlogPage extends StatelessWidget {
                   SizedBox(height: 80,),
                   Row(
                     children: <Widget>[
-                      Container(
-                        width: 300,
-                        child: FlatButton(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            children: <Widget>[
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image(
-                                  image: AssetImage("blog/squaredbot.png"),
-                                  // width: 200,
-                                ),
-                              ),
-                              SizedBox(height: 20,),
-                              BodyText("The most productive way to Learn", textAlign: TextAlign.center,)
-                            ],
-                          ),
-                          onPressed: (){
-                            
-                          },
-                        ),
-                      )
+                      Article()
                     ],
                   ),
                 ],
@@ -71,6 +50,38 @@ class BlogPage extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Article extends StatelessWidget {
+  const Article({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300,
+      child: FlatButton(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image(
+                image: AssetImage("blog/squaredbot.png"),
+                // width: 200,
+              ),
+            ),
+            SizedBox(height: 20,),
+            BodyText("The most productive way to Learn", textAlign: TextAlign.center,)
+          ],
+        ),
+        onPressed: (){
+          
+        },
       ),
     );
   }
