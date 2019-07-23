@@ -45,11 +45,15 @@ class BlogPage extends StatelessWidget {
                       Container(
                         width: 300,
                         child: FlatButton(
+                          padding: EdgeInsets.all(10),
                           child: Column(
                             children: <Widget>[
-                              Image(
-                                image: AssetImage("blog/squaredbot.png"),
-                                // width: 200,
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image(
+                                  image: AssetImage("blog/squaredbot.png"),
+                                  // width: 200,
+                                ),
                               ),
                               SizedBox(height: 20,),
                               BodyText("The most productive way to Learn", textAlign: TextAlign.center,)
