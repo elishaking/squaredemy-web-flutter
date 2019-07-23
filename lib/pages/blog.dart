@@ -15,7 +15,7 @@ class BlogPage extends StatelessWidget {
     final buttonPadding = EdgeInsets.symmetric(horizontal: responsiveSize(contentWidth, 85), vertical: responsiveSize(contentWidth, 30));
 
     return Scaffold(
-      backgroundColor: ThemeColors.primary,
+      backgroundColor: ThemeColors.primaryLight,
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -31,6 +31,37 @@ class BlogPage extends StatelessWidget {
                   SizedBox(height: 20,),
                   HeadlineText("Inside Squaredemy"),
                   SizedBox(height: 80,),
+                ],
+              ),
+            ),
+
+            Container(
+              padding: contentPadding,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 80,),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        width: 300,
+                        child: FlatButton(
+                          child: Column(
+                            children: <Widget>[
+                              Image(
+                                image: AssetImage("blog/squaredbot.png"),
+                                // width: 200,
+                              ),
+                              SizedBox(height: 20,),
+                              BodyText("The most productive way to Learn", textAlign: TextAlign.center,)
+                            ],
+                          ),
+                          onPressed: (){
+                            
+                          },
+                        ),
+                      )
+                    ],
+                  ),
                 ],
               ),
             )
