@@ -37,22 +37,23 @@ class _TestingFormState extends State<TestingForm> {
       ),
       child: Column(
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              FlatButton(
-                child: BodyText("SKIP FORM", color: Theme.of(context).primaryColor,),
-                onPressed: (){
-                  html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Join Squaredmy Alpha Testing Group");
-                },
-              )
-            ],
-          ),
-          SizedBox(height: 20,),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.end,
+          //   children: <Widget>[
+          //     FlatButton(
+          //       child: BodyText("SKIP FORM", color: Theme.of(context).primaryColor,),
+          //       onPressed: (){
+          //         html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Join Squaredmy Alpha Testing Group");
+          //       },
+          //     )
+          //   ],
+          // ),
+          // SizedBox(height: 20,),
           HeadlineText("Join Testing Group", textColor: ThemeColors.primary,
           textAlign: TextAlign.center,),
           // SizedBox(height: 10,),
           // BodyText("* Get the first 3 months free"),
+          /*
           SizedBox(height: 100,),
           Form(
             key: _formkey,
@@ -105,32 +106,34 @@ class _TestingFormState extends State<TestingForm> {
               ],
             ),
           ),
+          */
           SizedBox(height: 60,),
           _loading ? CircularProgressIndicator() : RaisedButton(
             child: ButtonText("Sign Up for Testing", ),
             elevation: 0,
             onPressed: (){
-              if(_formkey.currentState.validate()){
-                _formkey.currentState.save();
+              html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Join Squaredmy Alpha Testing Group");
+              // if(_formkey.currentState.validate()){
+              //   _formkey.currentState.save();
 
-                setState(() {
-                 _loading = true; 
-                });
-                // print(jsonEncode(_user.toFirestoreMap()));
-                http.post("https://firestore.googleapis.com/v1/projects/squaredemy/databases/(default)/documents/users?documentId=${_user.email}",
-                // headers: {
-                //   "Content-Type": "application/json"
-                // },
-                body: jsonEncode(_user.toFirestoreMap())).then((http.Response response) {
-                  setState(() {
-                   _loading = false; 
-                  });
-                  print(response.body);
-                  bool success = jsonDecode(response.body).contains("name");
-                  showResponseDialog(success, context);
-                  if(success) html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Join Squaredmy Alpha Testing Group");
-                });
-              }
+              //   setState(() {
+              //    _loading = true; 
+              //   });
+              //   // print(jsonEncode(_user.toFirestoreMap()));
+              //   http.post("https://firestore.googleapis.com/v1/projects/squaredemy/databases/(default)/documents/users?documentId=${_user.email}",
+              //   // headers: {
+              //   //   "Content-Type": "application/json"
+              //   // },
+              //   body: jsonEncode(_user.toFirestoreMap())).then((http.Response response) {
+              //     setState(() {
+              //      _loading = false; 
+              //     });
+              //     print(response.body);
+              //     bool success = jsonDecode(response.body).containsKey("name");
+              //     showResponseDialog(success, context);
+              //     if(success) html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Join Squaredmy Alpha Testing Group");
+              //   });
+              // }
             },
             color: Color.fromRGBO(34, 209, 164, 1),
             padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
