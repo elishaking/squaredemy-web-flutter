@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:html' as html;
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
@@ -112,7 +113,9 @@ class _TestingFormState extends State<TestingForm> {
                   setState(() {
                    _loading = false; 
                   });
-                  showResponseDialog(response, context);
+                  bool success = jsonDecode(response.body).contains("name");
+                  showResponseDialog(success, context);
+                  if(success) html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Join Squaredmy Alpha Testing Group");
                 });
               }
             },
@@ -126,8 +129,8 @@ class _TestingFormState extends State<TestingForm> {
 
   }
 
-  void showResponseDialog(http.Response response, BuildContext context) {
-    if(jsonDecode(response.body).contains("name")){
+  void showResponseDialog(bool success, BuildContext context) {
+    if(success){
       showDialog(
         context: context,
         builder: (BuildContext context) => AlertDialog(
