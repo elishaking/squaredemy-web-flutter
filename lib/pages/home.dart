@@ -111,7 +111,8 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                           onPressed: (){
-                            html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Sign Up for Testing");
+                            // html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Sign Up for Testing");
+                            Scrollable.ensureVisible(_joinTestingFormKey.currentContext);
                           },
                         ),
                       ),
