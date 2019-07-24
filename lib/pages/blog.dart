@@ -63,7 +63,7 @@ class Article extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
+      width: 270,
       child: FlatButton(
         padding: EdgeInsets.all(10),
         child: Column(
