@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
@@ -45,9 +46,9 @@ class AboutPage extends StatelessWidget {
                         child: ButtonText("Meet Us",),
                         elevation: 0,
                         onPressed: (){
-
+                          html.window.open("https://skyblazar.com", "Skyblazar");
                         },
-                        color: Color.fromRGBO(34, 209, 164, 1),
+                        color: ThemeColors.secondaryButton,
                         padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
                       ),
                     ],
@@ -100,7 +101,7 @@ class AboutPage extends StatelessWidget {
                     child: ButtonText("Visit Skyblazar",),
                     elevation: 0,
                     onPressed: (){
-
+                      html.window.open("https://skyblazar.com", "Skyblazar");
                     },
                     color: ThemeColors.secondaryButton,
                     padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
