@@ -23,170 +23,168 @@ class AboutPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ThemeColors.primary,
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            NavBar(contentPadding, contactFormKey: _contactFormKey,),
+      body: ListView(
+        children: <Widget>[
+          NavBar(contentPadding, contactFormKey: _contactFormKey,),
 
-            /// [intro] [section]
-            Container(
-              padding: contentPadding,
-              height: contentHeight * 0.95,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  HeadlineText("Building Squaredemy", textAlign: TextAlign.start,),
-                  SizedBox(height: 30,),
-                  TitleText("Squaredemy is a comprehensive online learning platform brought to you by SKYBLAZAR with an aim to solve this problem. At its core is a well-informed AI (Artificial Intelligence) expert named Squaredbot that creates a custom and interactive learning curriculum for students based on a critical assessment of their needs.", textAlign: TextAlign.start,),
-                  SizedBox(height: 90,),
-                  Row(
+          /// [intro] [section]
+          Container(
+            padding: contentPadding,
+            height: contentHeight * 0.95,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                HeadlineText("Building Squaredemy", textAlign: TextAlign.start,),
+                SizedBox(height: 30,),
+                TitleText("Squaredemy is a comprehensive online learning platform brought to you by SKYBLAZAR with an aim to solve this problem. At its core is a well-informed AI (Artificial Intelligence) expert named Squaredbot that creates a custom and interactive learning curriculum for students based on a critical assessment of their needs.", textAlign: TextAlign.start,),
+                SizedBox(height: 90,),
+                Row(
+                  children: <Widget>[
+                    RaisedButton(
+                      child: ButtonText("Meet Us",),
+                      elevation: 0,
+                      onPressed: (){
+                        html.window.open("https://skyblazar.com", "Skyblazar");
+                      },
+                      color: ThemeColors.secondaryButton,
+                      padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+          /// [team-members] [section]
+          Container(
+            height: contentWidth < 1100 ? null : contentHeight,
+            width: double.infinity,
+            padding: contentPadding,
+            color: ThemeColors.primaryLight,
+            child: Column(
+              children: <Widget>[
+                // SizedBox(height: 100,),
+                HeadlineText("Meet the Team"),
+                SizedBox(height: responsiveSize(contentWidth, 40),),
+                TitleText("We love teamwork. We love the idea of everyone rallying together to help us win."),
+                SizedBox(height: responsiveSize(contentWidth, 70),),
+                _buildTeamMembers(contentWidth)
+              ],
+            ),
+          ),
+          /// [diagonal] [clipper]
+          ClipPath(
+            clipper: DiagonalCutClipper(),
+            child: Container(
+              height: contentHeight * 0.1,
+              width: double.infinity,
+              color: Color.fromRGBO(48, 74, 123, 1),
+            ),
+          ),
+
+          /// [mission/vision] [section]
+          Container(
+            height: contentWidth < 1100 ? null : contentHeight * 1.3,
+            width: double.infinity,
+            padding: contentPadding,
+            child: Column(
+              children: <Widget>[
+                HeadlineText("Tough problems solved through innovative software soultions"),
+                SizedBox(height: responsiveSize(contentWidth, 60),),
+                TitleText("We are team of tenacious professionals with broadexpertise in graphic design and implementation of responsive/modern website, mobile apps and desktop apps. Our main goal is to keep tackling major socio-economic issues facing nations of the world through innovative software solutions"),
+                SizedBox(height: responsiveSize(contentWidth, 100),),
+                _buildMissionVission(splitWidth, contentWidth),
+                SizedBox(height: responsiveSize(contentWidth, 100)),
+                RaisedButton(
+                  child: ButtonText("Visit Skyblazar",),
+                  elevation: 0,
+                  onPressed: (){
+                    html.window.open("https://skyblazar.com", "Skyblazar");
+                  },
+                  color: ThemeColors.secondaryButton,
+                  padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                ),
+              ],
+            ),
+          ),
+
+          /// [contact-form] [section]
+          Container(
+            key: _contactFormKey,
+            height: contentWidth < 1100 ? null : contentHeight * 1.3,
+            padding: contentPadding,
+            child: contentWidth < 1100 ? Container(
+              // alignment: Alignment.center,
+              // margin: EdgeInsets.only(left: contactWidth / 1.2),
+              child: ContactForm()
+            ) : Stack(
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(left: contactWidth / 1.2),
+                  child: ContactForm()
+                ),
+                Container(
+                  alignment: Alignment.topCenter,
+                  margin: EdgeInsets.only(top: 100, right: contactWidth / 1.2),
+                  child: Image(
+                    image: AssetImage("contact.png"),
+                    width: contactWidth,
+                  ),
+                )
+              ],
+            ),
+          ),
+
+          /// [subscribe-form] [section]
+          Container(
+            height: contentHeight,
+            child: Stack(
+              children: <Widget>[
+                ClipPath(
+                  clipper: TopBezelClipper(scale: 2),
+                  child: Container(
+                    color: ThemeColors.primaryDark,
+                    width: double.infinity,
+                    height: double.infinity,
+                  ),
+                ),
+                SubscribeForm(contentWidth, splitWidth, buttonPadding)
+              ],
+            ),
+          ),
+        
+          /// [Footer] [section]
+          Container(
+            height: contentHeight / 4,
+            padding: contentPadding,
+            color: ThemeColors.primaryDark,
+            child: Row(
+              children: <Widget>[
+                Container(
+                  child: Row(
                     children: <Widget>[
-                      RaisedButton(
-                        child: ButtonText("Meet Us",),
-                        elevation: 0,
-                        onPressed: (){
-                          html.window.open("https://skyblazar.com", "Skyblazar");
-                        },
-                        color: ThemeColors.secondaryButton,
-                        padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                      Image(
+                        height: 30,
+                        image: AssetImage("logo_white.png"),
                       ),
+                      SizedBox(width: 20,),
+                      BodyText("SQUAREDEMY")
                     ],
                   ),
-                ],
-              ),
-            ),
-
-            /// [team-members] [section]
-            Container(
-              height: contentWidth < 1100 ? null : contentHeight,
-              width: double.infinity,
-              padding: contentPadding,
-              color: ThemeColors.primaryLight,
-              child: Column(
-                children: <Widget>[
-                  // SizedBox(height: 100,),
-                  HeadlineText("Meet the Team"),
-                  SizedBox(height: responsiveSize(contentWidth, 40),),
-                  TitleText("We love teamwork. We love the idea of everyone rallying together to help us win."),
-                  SizedBox(height: responsiveSize(contentWidth, 70),),
-                  _buildTeamMembers(contentWidth)
-                ],
-              ),
-            ),
-            /// [diagonal] [clipper]
-            ClipPath(
-              clipper: DiagonalCutClipper(),
-              child: Container(
-                height: contentHeight * 0.1,
-                width: double.infinity,
-                color: Color.fromRGBO(48, 74, 123, 1),
-              ),
-            ),
-
-            /// [mission/vision] [section]
-            Container(
-              height: contentWidth < 1100 ? null : contentHeight * 1.3,
-              width: double.infinity,
-              padding: contentPadding,
-              child: Column(
-                children: <Widget>[
-                  HeadlineText("Tough problems solved through innovative software soultions"),
-                  SizedBox(height: responsiveSize(contentWidth, 60),),
-                  TitleText("We are team of tenacious professionals with broadexpertise in graphic design and implementation of responsive/modern website, mobile apps and desktop apps. Our main goal is to keep tackling major socio-economic issues facing nations of the world through innovative software solutions"),
-                  SizedBox(height: responsiveSize(contentWidth, 100),),
-                  _buildMissionVission(splitWidth, contentWidth),
-                  SizedBox(height: responsiveSize(contentWidth, 100)),
-                  RaisedButton(
-                    child: ButtonText("Visit Skyblazar",),
-                    elevation: 0,
-                    onPressed: (){
-                      html.window.open("https://skyblazar.com", "Skyblazar");
-                    },
-                    color: ThemeColors.secondaryButton,
-                    padding: EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+                ),
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      
+                    ],
                   ),
-                ],
-              ),
+                )
+              ],
             ),
-
-            /// [contact-form] [section]
-            Container(
-              key: _contactFormKey,
-              height: contentWidth < 1100 ? null : contentHeight * 1.3,
-              padding: contentPadding,
-              child: contentWidth < 1100 ? Container(
-                // alignment: Alignment.center,
-                // margin: EdgeInsets.only(left: contactWidth / 1.2),
-                child: ContactForm()
-              ) : Stack(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: contactWidth / 1.2),
-                    child: ContactForm()
-                  ),
-                  Container(
-                    alignment: Alignment.topCenter,
-                    margin: EdgeInsets.only(top: 100, right: contactWidth / 1.2),
-                    child: Image(
-                      image: AssetImage("contact.png"),
-                      width: contactWidth,
-                    ),
-                  )
-                ],
-              ),
-            ),
-
-            /// [subscribe-form] [section]
-            Container(
-              height: contentHeight,
-              child: Stack(
-                children: <Widget>[
-                  ClipPath(
-                    clipper: TopBezelClipper(scale: 2),
-                    child: Container(
-                      color: ThemeColors.primaryDark,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
-                  ),
-                  SubscribeForm(contentWidth, splitWidth, buttonPadding)
-                ],
-              ),
-            ),
-          
-            /// [Footer] [section]
-            Container(
-              height: contentHeight / 4,
-              padding: contentPadding,
-              color: ThemeColors.primaryDark,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    child: Row(
-                      children: <Widget>[
-                        Image(
-                          height: 30,
-                          image: AssetImage("logo_white.png"),
-                        ),
-                        SizedBox(width: 20,),
-                        BodyText("SQUAREDEMY")
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Row(
-                      children: <Widget>[
-                        
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            )
-          ]
-        )
+          )
+        ] 
       )
     );
   }

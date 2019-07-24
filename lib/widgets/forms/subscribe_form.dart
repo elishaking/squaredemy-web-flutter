@@ -86,7 +86,7 @@ class _SubscribeFormState extends State<SubscribeForm> {
       child: ButtonText("Subscribe",),
       elevation: 0,
       onPressed: (){
-        print("reeexddxxx");
+        // print("reeexddxxx");
         if(_subscribeFormKey.currentState.validate()){
           _subscribeFormKey.currentState.save();
 

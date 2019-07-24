@@ -29,230 +29,228 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ThemeColors.primary,
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            NavBar(contentPadding),
+      body: ListView(
+        children: <Widget>[
+          NavBar(contentPadding),
 
-            /// [vp] [section]
-            Container(
-              key: _vpKey,
-              padding: contentPadding,
-              height: contentWidth < 1100 ? null : contentHeight * 0.9,
-              child: _buildVPSection(context, contentWidth, contentHeight * 0.9, splitWidth, buttonPadding),
+          /// [vp] [section]
+          Container(
+            key: _vpKey,
+            padding: contentPadding,
+            height: contentWidth < 1100 ? null : contentHeight * 0.9,
+            child: _buildVPSection(context, contentWidth, contentHeight * 0.9, splitWidth, buttonPadding),
+          ),
+
+
+          /// [squaredbot intro] [section]
+          Container(
+            padding: contentPadding,
+            color: ThemeColors.primaryDark,
+            child: Column(
+              children: <Widget>[
+                Image(
+                  image: AssetImage("squaredbot.png"),
+                ),
+                SizedBox(height: responsiveSize(contentWidth, 90),),
+                HeadlineText("Hi there, I'm Squaredbot", textColor: Colors.white),
+                SizedBox(height: 30,),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: contentWidth * 0.05, vertical: contentHeight * 0.05),
+                  decoration: BoxDecoration(
+                    // color: Color.fromRGBO(95, 143, 238, 1),
+                    color: ThemeColors.primary,
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: BodyText("I'm the AI that behind Squaredemy. Learning anything new can be challenging and sometimes boring. But hey, we all know that Education is the engine of prosperity, so something must be done about the process of learning new things. That's why I was created with the sole purpose of making learning a fun, interactive and engaging process. You'll certainly discover that you're not only boosting your learning speed, but with my help, you'll also find the process of learning even the most mundane concepts very interesting", textAlign: TextAlign.center,),
+                ),
+              ],
             ),
+          ),
 
-
-            /// [squaredbot intro] [section]
-            Container(
-              padding: contentPadding,
-              color: ThemeColors.primaryDark,
-              child: Column(
-                children: <Widget>[
-                  Image(
-                    image: AssetImage("squaredbot.png"),
-                  ),
-                  SizedBox(height: responsiveSize(contentWidth, 90),),
-                  HeadlineText("Hi there, I'm Squaredbot", textColor: Colors.white),
-                  SizedBox(height: 30,),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: contentWidth * 0.05, vertical: contentHeight * 0.05),
-                    decoration: BoxDecoration(
-                      // color: Color.fromRGBO(95, 143, 238, 1),
-                      color: ThemeColors.primary,
-                      borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: BodyText("I'm the AI that behind Squaredemy. Learning anything new can be challenging and sometimes boring. But hey, we all know that Education is the engine of prosperity, so something must be done about the process of learning new things. That's why I was created with the sole purpose of making learning a fun, interactive and engaging process. You'll certainly discover that you're not only boosting your learning speed, but with my help, you'll also find the process of learning even the most mundane concepts very interesting", textAlign: TextAlign.center,),
-                  ),
-                ],
-              ),
-            ),
-
-            /// [all-devices] [section]
-            Container(
-              padding: contentPadding,
-              // height: contentHeight,
-              width: double.infinity,
-              color: ThemeColors.primaryLight,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image(
-                    height: responsiveSize(contentWidth, 400),
-                    image: AssetImage("all-devices.png"),
-                  ),
-                  SizedBox(height: responsiveSize(contentWidth, 80),),
-                  HeadlineText("Available On All Screen sizes"),
-                  SizedBox(height: responsiveSize(contentWidth, 40),),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Flexible(
-                        child: RaisedButton(
-                          elevation: 0,
-                          padding: buttonPadding,
-                          color: Color.fromRGBO(34, 209, 164, 1),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Image(
-                                image: AssetImage("playstore.png"),
-                                height: 40,
-                              ),
-                              SizedBox(width: 20,),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  // BodyText("Available On"),
-                                  BodyText("Sign Up for Testing"),
-                                  ButtonText("Google Play")
-                                ],
-                              )
-                            ],
-                          ),
-                          onPressed: (){
-                            // html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Sign Up for Testing");
-                            Scrollable.ensureVisible(_joinTestingFormKey.currentContext);
-                          },
+          /// [all-devices] [section]
+          Container(
+            padding: contentPadding,
+            // height: contentHeight,
+            width: double.infinity,
+            color: ThemeColors.primaryLight,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image(
+                  height: responsiveSize(contentWidth, 400),
+                  image: AssetImage("all-devices.png"),
+                ),
+                SizedBox(height: responsiveSize(contentWidth, 80),),
+                HeadlineText("Available On All Screen sizes"),
+                SizedBox(height: responsiveSize(contentWidth, 40),),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Flexible(
+                      child: RaisedButton(
+                        elevation: 0,
+                        padding: buttonPadding,
+                        color: Color.fromRGBO(34, 209, 164, 1),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage("playstore.png"),
+                              height: 40,
+                            ),
+                            SizedBox(width: 20,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                // BodyText("Available On"),
+                                BodyText("Sign Up for Testing"),
+                                ButtonText("Google Play")
+                              ],
+                            )
+                          ],
                         ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            /// [diagonal] [clipper]
-            ClipPath(
-              clipper: DiagonalCutClipper(),
-              child: Container(
-                height: contentHeight * 0.1,
-                width: double.infinity,
-                color: Color.fromRGBO(48, 74, 123, 1),
-              ),
-            ),
-
-            /// [join-testing] [section]
-            Container(
-              height: contentWidth < 550 ? null : contentHeight,
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: <Widget>[
-                  ClipPath(
-                    clipper: TopBezelClipper(),
-                    child: Container(
-                      color: Color.fromRGBO(20, 33, 57, 1),
-                      width: double.infinity,
-                      height: contentHeight,
-                    ),
-                  ),
-                  Container(
-                    padding: contentPadding,
-                    width: double.infinity,
-                    alignment: Alignment.center,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image(
-                          image: AssetImage("phone-2.png"),
-                          height: responsiveSize(contentWidth, 500),
-                        ),
-                        SizedBox(height: 30,),
-                        HeadlineText("Simple and Smart",),
-                        SizedBox(height: 30,),
-                        TitleText("Let's Teach Squaredbot"),
-                        SizedBox(height: 90,),
-                        PrimaryButton("Sign Up for Testing",
                         onPressed: (){
+                          // html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Sign Up for Testing");
                           Scrollable.ensureVisible(_joinTestingFormKey.currentContext);
-                        },)
-                      ],
+                        },
+                      ),
                     ),
-                  )
-                ],
-              ),
+                  ],
+                )
+              ],
             ),
+          ),
+          /// [diagonal] [clipper]
+          ClipPath(
+            clipper: DiagonalCutClipper(),
+            child: Container(
+              height: contentHeight * 0.1,
+              width: double.infinity,
+              color: Color.fromRGBO(48, 74, 123, 1),
+            ),
+          ),
 
-            /// [app-features] [section]
-            Container(
-              height: contentWidth < 1500 ? null : contentHeight, //_appFeaturesContainerHeight(contentWidth, contentHeight),
-              padding: EdgeInsets.only(top: contentPadding.top, left: contentPadding.left, bottom: 0, right: contentPadding.right),
-              color: Color.fromRGBO(20, 33, 57, 1),
-              alignment: Alignment.center,
-              child: _buildAppFeaturesWidget(contentWidth),
+          /// [join-testing] [section]
+          Container(
+            height: contentWidth < 550 ? null : contentHeight,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                ClipPath(
+                  clipper: TopBezelClipper(),
+                  child: Container(
+                    color: Color.fromRGBO(20, 33, 57, 1),
+                    width: double.infinity,
+                    height: contentHeight,
+                  ),
+                ),
+                Container(
+                  padding: contentPadding,
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Image(
+                        image: AssetImage("phone-2.png"),
+                        height: responsiveSize(contentWidth, 500),
+                      ),
+                      SizedBox(height: 30,),
+                      HeadlineText("Simple and Smart",),
+                      SizedBox(height: 30,),
+                      TitleText("Let's Teach Squaredbot"),
+                      SizedBox(height: 90,),
+                      PrimaryButton("Sign Up for Testing",
+                      onPressed: (){
+                        Scrollable.ensureVisible(_joinTestingFormKey.currentContext);
+                      },)
+                    ],
+                  ),
+                )
+              ],
             ),
-          
-            /// [testing-form] [section]
-            Container(
-              key: _joinTestingFormKey,
-              // height: contentHeight * 2,
-              padding: contentPadding,
-              child: Column(
-                children: <Widget>[
-                  // SizedBox(height: 230,),
-                  HeadlineText("Help Squaredbot"),
-                  SizedBox(height: 30,),
-                  BodyText("Hi there, I need your help to get smarter. I'm still in the process of building myself to be your most trusted guide. To achieve this, I just need you to do a few things"),
-                  SizedBox(height: 50,),
-                  ..._buildTestingFormOnboarding(contentWidth),
-                  SizedBox(height: 50,),
-                  TestingForm()
-                ],
-              ),          
-            ),
+          ),
 
-            /// [subscribe-form] [section]
-            Container(
-              height: contentHeight,
-              child: Stack(
-                children: <Widget>[
-                  ClipPath(
-                    clipper: TopBezelClipper(scale: 2),
-                    child: Container(
-                      color: ThemeColors.primaryDark,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
+          /// [app-features] [section]
+          Container(
+            height: contentWidth < 1500 ? null : contentHeight, //_appFeaturesContainerHeight(contentWidth, contentHeight),
+            padding: EdgeInsets.only(top: contentPadding.top, left: contentPadding.left, bottom: 0, right: contentPadding.right),
+            color: Color.fromRGBO(20, 33, 57, 1),
+            alignment: Alignment.center,
+            child: _buildAppFeaturesWidget(contentWidth),
+          ),
+        
+          /// [testing-form] [section]
+          Container(
+            key: _joinTestingFormKey,
+            // height: contentHeight * 2,
+            padding: contentPadding,
+            child: Column(
+              children: <Widget>[
+                // SizedBox(height: 230,),
+                HeadlineText("Help Squaredbot"),
+                SizedBox(height: 30,),
+                BodyText("Hi there, I need your help to get smarter. I'm still in the process of building myself to be your most trusted guide. To achieve this, I just need you to do a few things"),
+                SizedBox(height: 50,),
+                ..._buildTestingFormOnboarding(contentWidth),
+                SizedBox(height: 50,),
+                TestingForm()
+              ],
+            ),          
+          ),
+
+          /// [subscribe-form] [section]
+          Container(
+            height: contentHeight,
+            child: Stack(
+              children: <Widget>[
+                ClipPath(
+                  clipper: TopBezelClipper(scale: 2),
+                  child: Container(
+                    color: ThemeColors.primaryDark,
+                    width: double.infinity,
+                    height: double.infinity,
                   ),
-                  Container(
-                    padding: contentPadding,
-                    child: SubscribeForm(contentWidth, splitWidth, buttonPadding),
-                  )
-                ],
-              ),
+                ),
+                Container(
+                  padding: contentPadding,
+                  child: SubscribeForm(contentWidth, splitWidth, buttonPadding),
+                )
+              ],
             ),
-          
-            /// [Footer] [section]
-            Container(
-              height: contentHeight / 4,
-              padding: contentPadding,
-              color: ThemeColors.primaryDark,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    child: Row(
-                      children: <Widget>[
-                        Image(
-                          height: 30,
-                          image: AssetImage("logo_white.png"),
-                        ),
-                        SizedBox(width: 20,),
-                        BodyText("SQUAREDEMY")
-                      ],
-                    ),
+          ),
+        
+          /// [Footer] [section]
+          Container(
+            height: contentHeight / 4,
+            padding: contentPadding,
+            color: ThemeColors.primaryDark,
+            child: Row(
+              children: <Widget>[
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      Image(
+                        height: 30,
+                        image: AssetImage("logo_white.png"),
+                      ),
+                      SizedBox(width: 20,),
+                      BodyText("SQUAREDEMY")
+                    ],
                   ),
-                  Container(
-                    child: Row(
-                      children: <Widget>[
-                        
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
