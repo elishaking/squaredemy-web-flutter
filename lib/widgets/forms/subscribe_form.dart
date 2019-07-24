@@ -75,6 +75,14 @@ class _SubscribeFormState extends State<SubscribeForm> {
     );
 
     RaisedButton subscribeButton = RaisedButton(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(contentWidth < 1100 ? 10 : 0),
+          topRight: Radius.circular(10),
+          bottomLeft: Radius.circular(contentWidth < 1100 ? 10 : 0),
+          bottomRight: Radius.circular(10),
+        )
+      ),
       child: ButtonText("Subscribe",),
       elevation: 0,
       onPressed: (){
