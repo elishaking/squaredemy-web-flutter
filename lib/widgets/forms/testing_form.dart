@@ -37,6 +37,18 @@ class _TestingFormState extends State<TestingForm> {
       ),
       child: Column(
         children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              FlatButton(
+                child: BodyText("SKIP FORM", color: Theme.of(context).primaryColor,),
+                onPressed: (){
+                  html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Join Squaredmy Alpha Testing Group");
+                },
+              )
+            ],
+          ),
+          SizedBox(height: 20,),
           HeadlineText("Join Testing Group", textColor: ThemeColors.primary,
           textAlign: TextAlign.center,),
           // SizedBox(height: 10,),
@@ -95,7 +107,7 @@ class _TestingFormState extends State<TestingForm> {
           ),
           SizedBox(height: 60,),
           _loading ? CircularProgressIndicator() : RaisedButton(
-            child: ButtonText("Join Testing", ),
+            child: ButtonText("Sign Up for Testing", ),
             elevation: 0,
             onPressed: (){
               if(_formkey.currentState.validate()){
@@ -113,6 +125,7 @@ class _TestingFormState extends State<TestingForm> {
                   setState(() {
                    _loading = false; 
                   });
+                  print(response.body);
                   bool success = jsonDecode(response.body).contains("name");
                   showResponseDialog(success, context);
                   if(success) html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Join Squaredmy Alpha Testing Group");
