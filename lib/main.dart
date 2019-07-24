@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:squaredemy_web/global/styles.dart';
 import 'package:squaredemy_web/pages/home.dart';
 
 void main() => runApp(MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Squaredemy',
       theme: ThemeData(
         fontFamily: "Lato",
-        primarySwatch: Colors.blue,
+        primaryColor: Color.fromRGBO(45, 63, 97, 1),
       ),
       home: HomePage(),
     );
