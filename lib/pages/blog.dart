@@ -16,40 +16,38 @@ class BlogPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ThemeColors.primaryLight,
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            /// [intro] [section]
-            Container(
-              color: ThemeColors.primaryDark,
-              padding: contentPadding,
-              child: Column(
-                children: <Widget>[
-                  NavBar(contentPadding, applyPadding: false,),
-                  SizedBox(height: 80,),
-                  TitleText("ARTICLES"),
-                  SizedBox(height: 20,),
-                  HeadlineText("Inside Squaredemy"),
-                  SizedBox(height: 80,),
-                ],
-              ),
+      body: ListView(
+        children: <Widget>[
+          /// [intro] [section]
+          Container(
+            color: ThemeColors.primaryDark,
+            padding: contentPadding,
+            child: Column(
+              children: <Widget>[
+                NavBar(contentPadding, applyPadding: false,),
+                SizedBox(height: 80,),
+                TitleText("ARTICLES"),
+                SizedBox(height: 20,),
+                HeadlineText("Inside Squaredemy"),
+                SizedBox(height: 80,),
+              ],
             ),
+          ),
 
-            Container(
-              padding: contentPadding,
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: 80,),
-                  Row(
-                    children: <Widget>[
-                      Article()
-                    ],
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+          Container(
+            padding: contentPadding,
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 80,),
+                Row(
+                  children: <Widget>[
+                    Article()
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
