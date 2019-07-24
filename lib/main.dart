@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Squaredemy',
       theme: ThemeData(
-        fontFamily: "Chivo",
+        fontFamily: "Lato",
         primarySwatch: Colors.blue,
       ),
       home: HomePage(),

@@ -20,7 +20,7 @@ class BodyText extends StatelessWidget {
     style: TextStyle(
       color: color,
       fontSize: _getFontSize(MediaQuery.of(context).size.width, fontSizes),
-      fontWeight: FontWeight.w500
+      fontWeight: FontWeight.w400
     ),
     overflow: TextOverflow.clip,
     textAlign: textAlign,);
@@ -72,7 +72,7 @@ class TitleText extends StatelessWidget {
     style: TextStyle(
       color: this.color,
       fontSize: _getFontSize(MediaQuery.of(context).size.width, fontSizes),
-      fontWeight: FontWeight.w700
+      fontWeight: FontWeight.w500
     ),
     overflow: TextOverflow.clip,
     textAlign: textAlign,);

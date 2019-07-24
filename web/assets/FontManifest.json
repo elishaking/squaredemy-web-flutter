@@ -8,19 +8,19 @@
     ]
   },
   {
-    "family": "Chivo",
+    "family": "Lato",
     "fonts": [
       {
-        "asset": "fonts/Chivo-Light.ttf"
+        "asset": "fonts/Lato-Light.ttf"
       },
       {
-        "asset": "fonts/Chivo-Regular.ttf"
+        "asset": "fonts/Lato-Regular.ttf"
       },
       {
-        "asset": "fonts/Chivo-Bold.ttf"
+        "asset": "fonts/Lato-Bold.ttf"
       },
       {
-        "asset": "fonts/Chivo-Black.ttf"
+        "asset": "fonts/Lato-Black.ttf"
       }
     ]
   }
