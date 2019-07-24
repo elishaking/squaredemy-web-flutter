@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'package:flutter_web/material.dart';
 import 'package:squaredemy_web/global/dims.dart';
 import 'package:squaredemy_web/global/styles.dart';
@@ -102,14 +103,15 @@ class HomePage extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  BodyText("Available On"),
+                                  // BodyText("Available On"),
+                                  BodyText("Sign Up for Testing"),
                                   ButtonText("Google Play")
                                 ],
                               )
                             ],
                           ),
                           onPressed: (){
-
+                            html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Sign Up for Testing");
                           },
                         ),
                       ),
@@ -159,7 +161,7 @@ class HomePage extends StatelessWidget {
                         SizedBox(height: 30,),
                         TitleText("Let's Teach Squaredbot"),
                         SizedBox(height: 90,),
-                        PrimaryButton("Join Testing",
+                        PrimaryButton("Sign Up for Testing",
                         onPressed: (){
                           Scrollable.ensureVisible(_joinTestingFormKey.currentContext);
                         },)
@@ -273,7 +275,7 @@ class HomePage extends StatelessWidget {
             Row(
               children: <Widget>[
                 RaisedButton(
-                  child: ButtonText("Join Testing",),
+                  child: ButtonText("Sign Up for Testing",),
                   elevation: 0,
                   onPressed: (){
                     Scrollable.ensureVisible(_joinTestingFormKey.currentContext);
