@@ -126,6 +126,7 @@ class _ContactFormState extends State<ContactForm> {
           SizedBox(height: 60,),
           _loading ? CircularProgressIndicator() : RaisedButton(
             child: ButtonText("Contact Us",),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             elevation: 0,
             onPressed: (){
               if(_contactFormkey.currentState.validate()){

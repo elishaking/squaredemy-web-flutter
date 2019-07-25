@@ -89,6 +89,7 @@ class HomePage extends StatelessWidget {
                     Flexible(
                       child: RaisedButton(
                         elevation: 0,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         padding: buttonPadding,
                         color: Color.fromRGBO(34, 209, 164, 1),
                         child: Row(
@@ -275,6 +276,7 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 RaisedButton(
                   child: ButtonText("Sign Up for Testing",),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   elevation: 0,
                   onPressed: (){
                     Scrollable.ensureVisible(_joinTestingFormKey.currentContext);

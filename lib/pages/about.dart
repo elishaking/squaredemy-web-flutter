@@ -43,6 +43,7 @@ class AboutPage extends StatelessWidget {
                   children: <Widget>[
                     RaisedButton(
                       child: ButtonText("Meet Us",),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                       elevation: 0,
                       onPressed: (){
                         html.window.open("https://skyblazar.com", "Skyblazar");
@@ -98,6 +99,7 @@ class AboutPage extends StatelessWidget {
                 SizedBox(height: responsiveSize(contentWidth, 100)),
                 RaisedButton(
                   child: ButtonText("Visit Skyblazar",),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   elevation: 0,
                   onPressed: (){
                     html.window.open("https://skyblazar.com", "Skyblazar");

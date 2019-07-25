@@ -110,6 +110,7 @@ class _TestingFormState extends State<TestingForm> {
           SizedBox(height: 60,),
           _loading ? CircularProgressIndicator() : RaisedButton(
             child: ButtonText("Sign Up for Testing", ),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             elevation: 0,
             onPressed: (){
               html.window.open("https://play.google.com/apps/testing/skyblazar.com.squaredemy", "Join Squaredmy Alpha Testing Group");

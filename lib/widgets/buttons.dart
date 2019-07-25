@@ -11,6 +11,7 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RaisedButton(
       child: ButtonText(text,),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 0,
       onPressed: (){
         onPressed();
